@@ -1,21 +1,18 @@
-import { useState } from "react"
-
-export default function StyleSwitcher(style, onChange) {
-    const [value, setValue] = useState(0)
+export default function StyleSwitcher({onChange}) {
     return (
-        <fieldset className="type-fieldset" onChange={onchange}>
+        <fieldset className="type-fieldset" onChange={onChange}>
             <legend>Display as</legend>
 
-            <input type="radio" id="type-of-sheet" name="type-of-sheet" value='0' onChange={onChange}></input>
+            <input type="radio" id="style-radio" name="style-radio" value='atlas'></input>
             <label for='atlas'>Atlas</label>
             
-            <input type="radio" id="type-of-sheet" name="type-of-sheet" value='1' onChange={onChange}></input>
+            <input type="radio" id="style-radio" name="style-radio" value='list'></input>
             <label for='list'>List</label>
             
-            <input type="radio" id="type-of-sheet" name="type-of-sheet" value='2' onChange={onChange}></input>
+            <input type="radio" id="style-radio" name="style-radio" value='tree'></input>
             <label for='tree'>Tree</label>
             
-            <input type="radio" id="type-of-sheet" name="type-of-sheet" value='3' onChange={onChange}></input>
+            <input type="radio" id="style-radio" name="style-radio" value='cards'></input>
             <label for='cards'>Cards</label>
         </fieldset>
     )

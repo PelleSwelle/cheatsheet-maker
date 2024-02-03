@@ -1,16 +1,18 @@
 import { designPatterns } from './DesignPatterns';
-
+import KnowledgeElement from './KnowledgeElement';
 export default function Viewer({style}) {
+    
     let typesOfPatterns = designPatterns.map(group =>
         <div>
             <h2> {group.name} </h2>
-            <p> {group.decription} </p>
+            <p> {group.description} </p>
             <ul>
                 {group.elements.map(pattern => 
-                    <li key={pattern.id}>
-                        {pattern.name}
-                        <p>{pattern.description}</p>
-                    </li>)}
+                    <KnowledgeElement
+                        name={pattern.name}
+                        description={pattern.description}
+                    />
+                )}
             </ul>
         </div>
     )

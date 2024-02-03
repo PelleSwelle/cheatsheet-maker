@@ -1,9 +1,8 @@
-function Area (item) {
+export default function Area (item) {
     return (
         <div className="Area">
-            <h3> { item.title } </h3>
+            <h3> { item.name } </h3>
             <p> { item.description } </p>
         </div>
     )
 }
-export default Area

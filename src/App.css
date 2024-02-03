@@ -1,5 +1,6 @@
 :root {
     --st-padding: 20px;
+    --outer-padding: 60px;
     
     /* colors */
     /* https://coolors.co/001021-034748-1481ba-11b5e4-0caadc */
@@ -32,7 +33,7 @@
         background-color: var(--coolors-rich-black);
         grid-column: 'viewer';
         color: white;
-        padding: 0 60px;
+        padding: 0 var(--outer-padding);
         
         .header {
             margin: 40px 0px;
@@ -49,6 +50,20 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 20px;
+
+            >* {
+                border: 2px solid white;
+                border-radius: 20px;
+                padding: 20px;
+
+                .knowledge-element {
+                    margin-top: 20px;
+                    list-style: none;
+                    border-radius: 20px;
+                    padding: 20px;
+                    background-color: var(--coolors-midnight-green);
+                }
+            }
         }
     
         .list {

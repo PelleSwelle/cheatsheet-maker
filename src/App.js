@@ -3,6 +3,8 @@ import Viewer from './components/Viewer';
 import { useState } from 'react';
 import StyleSwitcher from './components/StyleSwitcher'
 import Exporter from './components/Exporter';
+import TextInput from './TextInput';
+import Workbench from './Workbench';
 
 export default function App() {
     const [sheetStyle, setSheetStyle] = useState('list');
@@ -21,34 +23,12 @@ export default function App() {
 
     const handleStyleChange = () => {
         let newStyle = getSelectedRadio()
-        console.log(`Set style to ${newStyle}`)
         setSheetStyle(newStyle)
     }
 
     return (
         <div className="App">
-            <div className="workbench">
-                <h1>Cheatsheet Maker</h1>
-
-                <fieldset className="title-and-subtitle">
-                    <legend>Title</legend>
-
-                    <label>Title of the document</label>
-                    <input className="title"></input>
-
-                    <label>Subtitle</label>
-                    <input className="subtitle"></input>
-                </fieldset>
-
-                <StyleSwitcher onChange={handleStyleChange}/>
-
-                <fieldset className="content" id="content">
-                    <legend>Content</legend>
-                    <input type="text" id=""></input>
-                </fieldset>
-
-                <Exporter />
-            </div>
+            <Workbench onStyleChange={handleStyleChange}/>
             <Viewer style={sheetStyle} />
         </div>
     );

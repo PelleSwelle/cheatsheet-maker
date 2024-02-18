@@ -1,6 +1,8 @@
 :root {
+    /* padding and spacing */
     --st-padding: 20px;
     --outer-padding: 60px;
+    --std-rounding: 20px;
 
     /* colors */
     /* https://coolors.co/001021-034748-1481ba-11b5e4-0caadc */
@@ -10,128 +12,151 @@
     --coolors-areo: #11B5E4;
     --coolors-process-cyan: #0CAADC;
 
+    /* semantic colors */
     --workbench-color: gray;
 
     --viewer-color: var(--coolors-rich-black);
 
-    --std-rounding: 20px;
 }
 
-.item-description {
+textarea {
+    color: white;
     background-color: var(--coolors-rich-black);
     width: 100%;
+    height: fit-content;
     border: none;
     font-family: "Cutive Mono", monospace;
-    font-weight: 400;
-    color: white;
     font-style: normal;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    font-weight: 400;
+    resize: none;
+    margin: 0;
+    padding: 0;
+
+    border: 1px dashed red;
+}
+
+/* headings for the different levels */
+.topic-heading {
+    font-size: 2em;
+}
+
+.grouping-heading {
+    font-size: 1.8em;
+}
+
+.item-heading {
+    font-size: 1.5em;
 }
 
 .group-heading {
     display: flex;
     justify-content: space-between;
+}
 
-    .image-upload-widget {
-        /* display: none; */
-        height: 25px;
-        border-radius: 20px;
+
+
+/* widgets */
+.image-upload-widget {
+    height: 25px;
+    border-radius: 20px;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, .4);
+
+    >* {
         cursor: pointer;
-        border: 1px solid rgba(255, 255, 255, .4);
-
-        >* {
-            cursor: pointer;
-        }
-
-        input[type='file'] {
-            display: none;
-        }
     }
 
-    .group-icon {
-        height: 20px;
+    input[type='file'] {
+        display: none;
     }
 }
 
+.group-icon {
+    height: 20px;
+}
+
+.workbench {
+    grid-column: 'workbench';
+    padding: var(--st-padding);
+    background-color: var(--workbench-color);
+    min-height: 100vh;
+
+    >* {
+        margin: 20px;
+    }
+}
 .App {
-    /* text-align: center; */
     display: grid;
     grid-template-columns: [left] 20% [right] 1fr;
     min-height: 100vh;
+}
+.viewer {
+    background-color: var(--coolors-rich-black);
+    grid-column: 'viewer';
+    color: white;
+    padding: 0 var(--outer-padding);
+}
 
-    .workbench {
-        grid-column: 'workbench';
-        padding: var(--st-padding);
-        background-color: var(--workbench-color);
-        min-height: 100vh;
+.header {
+    margin: 40px 0px;
+}
 
-        >* {
-            margin: 20px;
-        }
-    }
+.divider {
+    background-color: white;
+    height: 2px;
+    width: 100%;
+    margin: 20px 0px;
+}
 
-    .viewer {
-        background-color: var(--coolors-rich-black);
-        grid-column: 'viewer';
-        color: white;
-        padding: 0 var(--outer-padding);
+/* visualisations */
+.columns {
+    display: flex;
+    flex-direction: row;
+}
+.list {
+    display: flex;
+    flex-direction: column;
+}
 
-        .header {
-            margin: 40px 0px;
-        }
+.cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
 
-        .divider {
-            background-color: white;
-            height: 2px;
-            width: 100%;
-            margin: 20px 0px;
-        }
+    >* {
+        border: 2px solid white;
+        border-radius: 20px;
+        padding: 20px;
 
-        .cards {
+        .knowledge-element {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
+            place-items: center;
+            margin-top: 20px;
+            list-style: none;
+            border-radius: 20px;
+            padding: 20px;
+            background-color: var(--coolors-midnight-green);
 
-            >* {
-                border: 2px solid white;
-                border-radius: 20px;
-                padding: 20px;
+            .image-placeholder {
+                width: 100px;
+                height: 100px;
+                background-color: lightseagreen;
+                border-radius: 100px;
+            }
 
-                .knowledge-element {
-                    display: grid;
-                    place-items: center;
-                    margin-top: 20px;
-                    list-style: none;
-                    border-radius: 20px;
-                    padding: 20px;
-                    background-color: var(--coolors-midnight-green);
-
-                    .image-placeholder {
-                        width: 100px;
-                        height: 100px;
-                        background-color: lightseagreen;
-                        border-radius: 100px;
-                    }
-
-                    .content {
-                        display: flex;
-                        justify-content: flex-start;
-                    }
-                }
+            .content {
+                display: flex;
+                justify-content: flex-start;
             }
         }
-
-        .list {
-            display: flex;
-            flex-direction: column;
-        }
     }
+}
 
-
-    .card {
-        border: 1px solid white;
-        border-radius: var(--std-rounding);
-        padding: var(--st-padding);
-    }
+/* item visualisations */
+.card {
+    border: 1px solid white;
+    border-radius: var(--std-rounding);
+    padding: var(--st-padding);
 }

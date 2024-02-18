@@ -5,9 +5,10 @@ import Workbench from './Workbench';
 
 export default function App() {
     const [sheetStyle, setSheetStyle] = useState('cards');
-    const [topicDescriptionIsVisible, setTopicDescriptionIsVisible] = useState(false);
-    const [groupDescriptionIsVisible, setGroupDescriptionIsVisible] = useState(false);
-    const [itemDescriptionIsVisible, setItemDescriptionIsVisible] = useState(false);
+    const [topicDescriptionIsVisible, setTopicDescriptionIsVisible] = useState(true);
+    const [groupDescriptionIsVisible, setGroupDescriptionIsVisible] = useState(true);
+    const [itemDescriptionIsVisible, setItemDescriptionIsVisible] = useState(true);
+    const [groupingStyle, setGroupingStyle] = useState('columns')
 
     const getSelectedRadio = () => {
         let radios = document.getElementsByName('style-radio')
@@ -30,6 +31,7 @@ export default function App() {
     const handleGroupingDetailChange = () => { setGroupDescriptionIsVisible(!groupDescriptionIsVisible) }
     const handleItemDetailChange = () => { setItemDescriptionIsVisible(!itemDescriptionIsVisible) }
 
+    // const handlegroupingStyleChange = () => { setGroupingStyle()}
     return (
         <div className="App">
             <Workbench 
@@ -40,6 +42,7 @@ export default function App() {
             />
             <Viewer 
                 style={sheetStyle} 
+                groupingStyle={groupingStyle}
                 topicDescriptionIsVisible={topicDescriptionIsVisible} 
                 groupDescriptionIsVisible={groupDescriptionIsVisible} 
                 itemDescriptionIsVisible={itemDescriptionIsVisible}

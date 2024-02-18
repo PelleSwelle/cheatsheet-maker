@@ -4,10 +4,15 @@ import ReactHooks from '../testResources/ReactHooks';
 import Grouping from './Grouping';
 import TopicHeading from './TopicHeading';
 
-export default function Viewer({ style, topicDescriptionIsVisible, groupDescriptionIsVisible, itemDescriptionIsVisible }) {
+export default function Viewer({ style, groupingStyle, topicDescriptionIsVisible, groupDescriptionIsVisible, itemDescriptionIsVisible }) {
 
     let groups = ReactHooks.elements.map(group =>
-        <Grouping group={group} groupDescriptionIsVisible={groupDescriptionIsVisible} itemDescriptionIsVisible={itemDescriptionIsVisible} />
+        <Grouping
+            style={groupingStyle}
+            group={group} 
+            groupDescriptionIsVisible={groupDescriptionIsVisible} 
+            itemDescriptionIsVisible={itemDescriptionIsVisible} 
+        />
     )
 
     return (

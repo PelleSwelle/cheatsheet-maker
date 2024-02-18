@@ -1,28 +1,22 @@
-import { designPatterns } from './DesignPatterns';
-import KnowledgeElement from './KnowledgeElement';
-export default function Viewer({style}) {
-    
-    let typesOfPatterns = designPatterns.map(group =>
-        <div>
-            <h2> {group.name} </h2>
-            <p> {group.description} </p>
-            <ul>
-                {group.elements.map(pattern => 
-                    <KnowledgeElement
-                        name={pattern.name}
-                        description={pattern.description}
-                    />
-                )}
-            </ul>
-        </div>
+import { designPatterns } from '../testResources/DesignPatterns';
+import Item from './Item';
+import ReactHooks from '../testResources/ReactHooks';
+import Grouping from './Grouping';
+import TopicHeading from './TopicHeading';
+
+export default function Viewer({ style, topicDescriptionIsVisible, groupDescriptionIsVisible, itemDescriptionIsVisible }) {
+
+    let groups = ReactHooks.elements.map(group =>
+        <Grouping group={group} groupDescriptionIsVisible={groupDescriptionIsVisible} itemDescriptionIsVisible={itemDescriptionIsVisible} />
     )
 
     return (
         <div className="viewer">
-            <h1 className='header'>Design Patterns</h1>
+            <TopicHeading name={ReactHooks.name}/>
+            <p>{topicDescriptionIsVisible ? ReactHooks.description : null}</p>
             <div className='divider'></div>
             <div className={style}>
-                {typesOfPatterns}
+                {groups}
             </div>
         </div>
     )

@@ -1,9 +1,17 @@
-class Item {
-    constructor(_title, _description, _image = null) {
-        this.title = _title;
-        this.description = _description;
-        this.image = _image;
-    }
-}
+import ItemHeading from './ItemHeading'
 
-export default Item;
+export default function Item({id, name, description, citation = null, image = null}) {
+    return(
+        <div className='item' key={id}>
+            <div className="image-placeholder"></div>
+            <div className="item-content">
+                <ItemHeading name={name}/>
+                {/* <h3 className="item-name"> {name} </h3> */}
+                <textarea className="item-description" value={description}/>
+                {/* <p className="item-description">{description}</p> */}
+            </div>
+
+            {/* implement the rest of the things */}
+        </div>
+    )
+}

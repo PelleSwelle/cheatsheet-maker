@@ -1,7 +1,7 @@
 :root {
     --st-padding: 20px;
     --outer-padding: 60px;
-    
+
     /* colors */
     /* https://coolors.co/001021-034748-1481ba-11b5e4-0caadc */
     --coolors-rich-black: #001021;
@@ -9,7 +9,7 @@
     --coolors-blue: #1481BA;
     --coolors-areo: #11B5E4;
     --coolors-process-cyan: #0CAADC;
-    
+
     --workbench-color: gray;
 
     --viewer-color: var(--coolors-rich-black);
@@ -17,35 +17,77 @@
     --std-rounding: 20px;
 }
 
+.item-description {
+    background-color: var(--coolors-rich-black);
+    width: 100%;
+    border: none;
+    font-family: "Cutive Mono", monospace;
+    font-weight: 400;
+    color: white;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.group-heading {
+    display: flex;
+    justify-content: space-between;
+
+    .image-upload-widget {
+        /* display: none; */
+        height: 25px;
+        border-radius: 20px;
+        cursor: pointer;
+        border: 1px solid rgba(255, 255, 255, .4);
+
+        >* {
+            cursor: pointer;
+        }
+
+        input[type='file'] {
+            display: none;
+        }
+    }
+
+    .group-icon {
+        height: 20px;
+    }
+}
+
 .App {
     /* text-align: center; */
     display: grid;
-    grid-template-columns: [left] 20% [right] 1fr;    
+    grid-template-columns: [left] 20% [right] 1fr;
     min-height: 100vh;
-    
+
     .workbench {
         grid-column: 'workbench';
         padding: var(--st-padding);
         background-color: var(--workbench-color);
+        min-height: 100vh;
+
+        >* {
+            margin: 20px;
+        }
     }
-    
+
     .viewer {
         background-color: var(--coolors-rich-black);
         grid-column: 'viewer';
         color: white;
         padding: 0 var(--outer-padding);
-        
+
         .header {
             margin: 40px 0px;
         }
-    
+
         .divider {
             background-color: white;
             height: 2px;
             width: 100%;
             margin: 20px 0px;
         }
-    
+
         .cards {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -57,22 +99,36 @@
                 padding: 20px;
 
                 .knowledge-element {
+                    display: grid;
+                    place-items: center;
                     margin-top: 20px;
                     list-style: none;
                     border-radius: 20px;
                     padding: 20px;
                     background-color: var(--coolors-midnight-green);
+
+                    .image-placeholder {
+                        width: 100px;
+                        height: 100px;
+                        background-color: lightseagreen;
+                        border-radius: 100px;
+                    }
+
+                    .content {
+                        display: flex;
+                        justify-content: flex-start;
+                    }
                 }
             }
         }
-    
+
         .list {
             display: flex;
             flex-direction: column;
         }
     }
-    
-    
+
+
     .card {
         border: 1px solid white;
         border-radius: var(--std-rounding);

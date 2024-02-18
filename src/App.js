@@ -1,13 +1,13 @@
 import './App.css';
 import Viewer from './components/Viewer';
 import { useState } from 'react';
-import StyleSwitcher from './components/StyleSwitcher'
-import Exporter from './components/Exporter';
-import TextInput from './TextInput';
 import Workbench from './Workbench';
 
 export default function App() {
-    const [sheetStyle, setSheetStyle] = useState('list');
+    const [sheetStyle, setSheetStyle] = useState('cards');
+    const [topicDescriptionIsVisible, setTopicDescriptionIsVisible] = useState(false);
+    const [groupDescriptionIsVisible, setGroupDescriptionIsVisible] = useState(false);
+    const [itemDescriptionIsVisible, setItemDescriptionIsVisible] = useState(false);
 
     const getSelectedRadio = () => {
         let radios = document.getElementsByName('style-radio')
@@ -26,10 +26,24 @@ export default function App() {
         setSheetStyle(newStyle)
     }
 
+    const handleTopicDetailChange = () => { setTopicDescriptionIsVisible(!topicDescriptionIsVisible) }
+    const handleGroupingDetailChange = () => { setGroupDescriptionIsVisible(!groupDescriptionIsVisible) }
+    const handleItemDetailChange = () => { setItemDescriptionIsVisible(!itemDescriptionIsVisible) }
+
     return (
         <div className="App">
-            <Workbench onStyleChange={handleStyleChange}/>
-            <Viewer style={sheetStyle} />
+            <Workbench 
+                onStyleChange={handleStyleChange}
+                onTopicDetailChange={handleTopicDetailChange}
+                onGroupingDetailChange={handleGroupingDetailChange}
+                onItemDetailChange={handleItemDetailChange}
+            />
+            <Viewer 
+                style={sheetStyle} 
+                topicDescriptionIsVisible={topicDescriptionIsVisible} 
+                groupDescriptionIsVisible={groupDescriptionIsVisible} 
+                itemDescriptionIsVisible={itemDescriptionIsVisible}
+            />
         </div>
     );
 }

@@ -1,8 +1,27 @@
+import jsPDF from "jspdf"
+
 export default function Exporter() {
 
-    const handlePDF = () => alert('exporting as PDF not implemented yet.')
-
+    var elementHandler = {
+        '#ignorePDF': function (element, renderer) {
+            return true;
+        }
+    };
+    const handlePDF = () => {
+        const doc = new jsPDF();
+        var source = window.document.getElementsByTagName('body')[0];
+        doc.fromHTML(
+            source,
+            15,
+            15,
+            {
+                'width': 180, 'elementHandlers': elementHandler
+            }
+        )
+        doc.save('a4.pdf');
+    }
     const handlePNG = () => alert('Exporting as PNG not implemented yet.')
+
 
     return (
         <fieldset className="export-options">

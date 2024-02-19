@@ -2,6 +2,14 @@
 
 A web application to make cheatsheets. 
 
+The idea is to be able to upload a variety of different file formats and have the application just do its thing.
+
+The wishlist is:
+.docx, .doc, .odt, .json, js, .md
+
+at the moment the supported file format is:
+.json
+
 # The infrastructure
 Currently there are three levels of 'knowledge'.
 These are 

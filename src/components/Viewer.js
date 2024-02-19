@@ -1,13 +1,13 @@
-import { designPatterns } from '../testResources/DesignPatterns';
 import Item from './Item';
 import ReactHooks from '../testResources/ReactHooks';
 import Grouping from './Grouping';
 import TopicHeading from './TopicHeading';
 
-export default function Viewer({ style, groupingStyle, topicDescriptionIsVisible, groupDescriptionIsVisible, itemDescriptionIsVisible }) {
+export default function Viewer({content, style, groupingStyle, topicDescriptionIsVisible, groupDescriptionIsVisible, itemDescriptionIsVisible }) {
 
-    let groups = ReactHooks.elements.map(group =>
+    let groups = content.elements.map(group =>
         <Grouping
+            key={group.name}
             style={groupingStyle}
             group={group} 
             groupDescriptionIsVisible={groupDescriptionIsVisible} 
@@ -17,8 +17,8 @@ export default function Viewer({ style, groupingStyle, topicDescriptionIsVisible
 
     return (
         <div className="viewer">
-            <TopicHeading name={ReactHooks.name}/>
-            <p>{topicDescriptionIsVisible ? ReactHooks.description : null}</p>
+            <TopicHeading name={content.name}/>
+            <p>{topicDescriptionIsVisible ? content.description : null}</p>
             <div className='divider'></div>
             <div className={style}>
                 {groups}

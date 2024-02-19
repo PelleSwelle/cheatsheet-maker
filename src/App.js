@@ -12,6 +12,7 @@ export default function App() {
     const [topicDescriptionIsVisible, setTopicDescriptionIsVisible] = useState(true);
     const [groupDescriptionIsVisible, setGroupDescriptionIsVisible] = useState(true);
     const [itemDescriptionIsVisible, setItemDescriptionIsVisible] = useState(true);
+    // const [groupingStyle, setGroupingStyle] = useState('columns')
 
     const getSelectedRadio = () => {
         let radios = document.getElementsByName('style-radio')
@@ -63,6 +64,7 @@ export default function App() {
             <Viewer
                 content={file}
                 style={sheetStyle}
+                // groupingStyle={groupingStyle}
                 topicDescriptionIsVisible={topicDescriptionIsVisible}
                 groupDescriptionIsVisible={groupDescriptionIsVisible}
                 itemDescriptionIsVisible={itemDescriptionIsVisible}

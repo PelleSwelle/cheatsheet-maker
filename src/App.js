@@ -2,6 +2,7 @@ import './App.css';
 import Viewer from './components/Viewer';
 import { useState } from 'react';
 import Workbench from './Workbench';
+import Cheatsheet from './Cheatsheet';
 
 // default data
 import ReactHooks from './testResources/ReactHooks';
@@ -9,12 +10,12 @@ import ReactHooks from './testResources/ReactHooks';
 export default function App() {
     const [file, setFile] = useState(ReactHooks)
     const [sheetLayout, setSheetLayout] = useState('columns-with-cards');
-    
+
     const [groupingStyle, setGroupingStyle] = useState('column')
     const [itemStyle, setItemStyle] = useState('card');
-    
-    const [topicDescriptionIsVisible, setTopicDescriptionIsVisible] = useState(false);
-    const [groupDescriptionIsVisible, setGroupDescriptionIsVisible] = useState(false);
+
+    const [topicDescriptionIsVisible, setTopicDescriptionIsVisible] = useState(true);
+    const [groupingDescriptionIsVisible, setGroupingDescriptionIsVisible] = useState(false);
     const [itemDescriptionIsVisible, setItemDescriptionIsVisible] = useState(false);
     const [orientation, setOrientation] = useState('vertical');
 
@@ -40,7 +41,7 @@ export default function App() {
         let file = document.getElementById('file-upload').files[0];
         let reader = new FileReader();
         reader.readAsBinaryString(file);
-        
+
         reader.onload = () => {
             console.log(reader.result);
             let obj = JSON.parse(reader.result)
@@ -52,10 +53,10 @@ export default function App() {
     }
 
     const handleTopicDetailChange = () => { setTopicDescriptionIsVisible(!topicDescriptionIsVisible) }
-    const handleGroupingDetailChange = () => { setGroupDescriptionIsVisible(!groupDescriptionIsVisible) }
+    const handleGroupingDetailChange = () => { setGroupingDescriptionIsVisible(!groupingDescriptionIsVisible) }
     const handleItemDetailChange = () => { setItemDescriptionIsVisible(!itemDescriptionIsVisible) }
-    
-    const handleOrientationChange = () => { 
+
+    const handleOrientationChange = () => {
         if (orientation === 'vertical') {
             setOrientation('horizontal')
         } else if (orientation === 'horizontal') {
@@ -74,14 +75,17 @@ export default function App() {
                 onItemDetailChange={handleItemDetailChange}
             />
             <Viewer
-                content={file}
-                layout={sheetLayout}
                 groupingStyle={groupingStyle}
                 itemStyle={itemStyle}
-                topicDescriptionIsVisible={topicDescriptionIsVisible}
-                groupDescriptionIsVisible={groupDescriptionIsVisible}
-                itemDescriptionIsVisible={itemDescriptionIsVisible}
-            />
+            >
+                <Cheatsheet
+                    content={file}
+                    topicDescriptionIsVisible={topicDescriptionIsVisible}
+                    groupingDescriptionIsVisible={groupingDescriptionIsVisible}
+                    itemDescriptionIsVisible={itemDescriptionIsVisible}
+                    layout={sheetLayout}
+                />
+            </Viewer>
         </div>
     );
 }

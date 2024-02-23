@@ -63,28 +63,38 @@ textarea {
         .cheatsheet {
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            align-items: center;
+            justify-content: flex-start;
 
             width: var(--a4-width);
             height: var(--a4-height);
             background-color: var(--lighttheme-darkblue);
 
-            .topic-header {
-                .topic-heading {
-                    text-align: center;
-                }
+            .topic-heading {
+                height: fit-content;
+                text-align: center;
             }
 
-            .columns-with-cards {
+            .sheet-content {
+                height: 100%;
                 display: flex;
                 
                 /* TODO: do this programmatically and dynamically in the component. */
-                .column:nth-child(1) { background-color: var(--lighttheme-yellow); }
-                .column:nth-child(2) { background-color: var(--lighttheme-neutralblue); }
-                .column:nth-child(3) { background-color: var(--lighttheme-darkblue); }
-                .column:nth-child(4) { background-color: var(--lighttheme-orange) }
-                .column:nth-child(5) { background-color: var(--lighttheme-neutralblue) }
-                .column:nth-child(6) { background-color: var(--lighttheme-yellow) }
+                .grouping:nth-child(1) { background-color: var(--lighttheme-yellow); }
+                .grouping:nth-child(2) { background-color: var(--lighttheme-neutralblue); }
+                .grouping:nth-child(3) { background-color: var(--lighttheme-red); }
+                .grouping:nth-child(4) { background-color: var(--lighttheme-orange); }
+                .grouping:nth-child(5) { background-color: var(--lighttheme-neutralblue); }
+                .grouping:nth-child(6) { background-color: var(--lighttheme-yellow); }
+                
+                .grouping {
+                    padding: 10px 10px;
+
+                    .item {
+                        border: 1px solid black;
+                        margin: 20px 0px;
+                    }
+                }
             }
         }
     
@@ -106,9 +116,7 @@ textarea {
 }
 
 .item {
-    border: 1px solid white;
-    border-radius: 10px;
-    padding: 2px;
+    
 }
 
 .cards {
@@ -122,11 +130,4 @@ textarea {
         padding: 20px;
 
     }
-}
-
-/* item visualisations */
-.card {
-    border: 1px solid white;
-    border-radius: var(--std-rounding);
-    padding: var(--st-padding);
 }

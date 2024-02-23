@@ -1,15 +1,39 @@
 import TopicHeading from "./components/TopicHeading"
+import Grouping from "./components/Grouping"
+import Item from "./components/Item"
 
-export default function Cheatsheet({content, topicDescriptionIsVisible, layout, groupings}) {
+export default function Cheatsheet({
+    content, 
+    topicDescriptionIsVisible, 
+    groupingDescriptionIsVisible, 
+    itemDescriptionIsVisible, 
+}) {
+    let sheetContent = content.elements.map(group =>
+        <Grouping
+            key={group.name}
+            group={group} 
+            descriptionIsVisible={groupingDescriptionIsVisible} 
+            itemDescriptionIsVisible={itemDescriptionIsVisible} 
+        >
+            { 
+                group.elements.map(item => 
+                    <Item item={item} /> 
+                )}
+        </Grouping>
+    )
+    
     return (
         <div className="cheatsheet">
             <TopicHeading name={content.name}/>
-            <p className='topic-description'>{topicDescriptionIsVisible ? content.description : null}</p>
+            {topicDescriptionIsVisible 
+                ? (<p className='topic-description'>{content.description}</p>)  
+                : null
+            }
+            
             <div className='divider'></div>
             
-            {/* the content of the sheet */}
-            <div className={layout}>
-                {groupings}
+            <div className='sheet-content'>
+                {sheetContent}
             </div>
         </div>
     )

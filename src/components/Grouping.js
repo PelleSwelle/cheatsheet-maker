@@ -1,37 +1,36 @@
 import GroupingHeading from "./GroupingHeading";
 import ImageUploadWidget from "./ImageUploadWidget";
-import Item from "./Item"
 import { useState } from "react";
 
 
-export default function Grouping({ style, itemStyle, group, groupDescriptionIsVisible, itemDescriptionIsVisible }) {
+export default function Grouping({ 
+    descriptionIsVisible, 
+    group, 
+    children 
+}) {
     const [icon, setIcon] = useState();
 
-    const handleChange = (e) => { setIcon(URL.createObjectURL(e.target.files[0])) }
+    const handleIconChange = (e) => { 
+        let icon = e.target.files[0];
+        setIcon(URL.createObjectURL(icon)) 
+    }
 
     const onDescriptionChange = (e) => {
         e.target.style.height = this.scrollHeight + 'px';
     }
 
-    let items = group.elements.map(item =>
-        <Item
-            key={item.name}
-            name={item.name}
-            style={itemStyle}
-            description={itemDescriptionIsVisible ? item.description : null}
-        />
-    )
-
     return (
-        <div className={style}>
+        <div className='grouping'>
             <div className="grouping-header">
                 <GroupingHeading name={group.name} />
                 <img className="group-icon" src={icon} />
-                {icon ? null : (<ImageUploadWidget onChange={handleChange} />)}
+                {icon ? null : (<ImageUploadWidget onChange={handleIconChange} />)}
             </div>
 
-            <div className="group-content">
-                {groupDescriptionIsVisible 
+            <div className="divider"></div>
+
+            <div className='group-content'>
+                {descriptionIsVisible 
                     ? (<textarea 
                         name="text" 
                         className="group-description" 
@@ -41,7 +40,7 @@ export default function Grouping({ style, itemStyle, group, groupDescriptionIsVi
                     : null
                 }
                 <ul className="items">
-                    {items}
+                    { children }
                 </ul>
             </div>
         </div>

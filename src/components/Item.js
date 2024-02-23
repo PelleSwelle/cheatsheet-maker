@@ -4,14 +4,14 @@ export default function Item({id, name, description, citation = null, image = nu
     const onChange = () => {
         return
     }
+
     return(
         <div className='item' key={id}>
             <div className="image-placeholder"></div>
             <div className="item-content">
                 <ItemHeading name={name}/>
-                {/* <h3 className="item-name"> {name} </h3> */}
+                <div className='divider'></div>
                 <textarea className="item-description" value={description} onChange={onChange}/>
-                {/* <p className="item-description">{description}</p> */}
             </div>
 
             {/* implement the rest of the things */}

@@ -1,107 +1,96 @@
-:root {
-    /* padding and spacing */
-    --st-padding: 20px;
-    --outer-padding: 60px;
-    --std-rounding: 20px;
-
-    /* colors */
-    /* https://coolors.co/001021-034748-1481ba-11b5e4-0caadc */
-    --coolors-rich-black: #001021;
-    --coolors-midnight-green: #034748;
-    --coolors-blue: #1481BA;
-    --coolors-areo: #11B5E4;
-    --coolors-process-cyan: #0CAADC;
-
-    /* semantic colors */
-    --workbench-color: gray;
-
-    --viewer-color: var(--coolors-rich-black);
-
-}
+@import './index.css';
 
 textarea {
+    font-size: smaller;
+    color: black;
+    background-color: rgba(255, 255, 255, 0);
     color: white;
-    background-color: var(--coolors-rich-black);
     width: 100%;
-    height: fit-content;
+    /* height: fit-content; */
     border: none;
     font-family: "Cutive Mono", monospace;
     font-style: normal;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-weight: 400;
+    /* font-weight: 400; */
     resize: none;
     margin: 0;
     padding: 0;
-
-    border: 1px dashed red;
 }
-
-/* headings for the different levels */
-.topic-heading {
-    font-size: 2em;
-}
-
-.grouping-heading {
-    font-size: 1.8em;
-}
-
-.item-heading {
-    font-size: 1.5em;
-}
-
-.group-heading {
-    display: flex;
-    justify-content: space-between;
-}
-
 
 
 /* widgets */
 .image-upload-widget {
-    height: 25px;
+    display: flex;
+    height: fit-content;
+    padding-bottom: 3px;
     border-radius: 20px;
     cursor: pointer;
-    border: 1px solid rgba(255, 255, 255, .4);
-
-    >* {
+    border: 1px solid black;
+    >* { 
         cursor: pointer;
+        font-size: .4em; 
     }
 
-    input[type='file'] {
-        display: none;
-    }
+    input[type='file'] { display: none; }
 }
 
-.group-icon {
-    height: 20px;
-}
+.group-icon { height: 20px; }
 
-.workbench {
-    grid-column: 'workbench';
-    padding: var(--st-padding);
-    background-color: var(--workbench-color);
-    min-height: 100vh;
-
-    >* {
-        margin: 20px;
-    }
-}
+/* components */
 .App {
     display: grid;
-    grid-template-columns: [left] 20% [right] 1fr;
+    grid-template-columns: [left] 200px [right] 1fr;
     min-height: 100vh;
-}
-.viewer {
-    background-color: var(--coolors-rich-black);
-    grid-column: 'viewer';
-    color: white;
-    padding: 0 var(--outer-padding);
+
+    .workbench {
+        grid-column: 'workbench';
+        padding: var(--st-padding);
+        background-color: var(--workbench-color);
+        min-height: 100vh;
+    
+        >* {
+            margin: 20px;
+        }
+    }
+    
+    .viewer {
+        background-color: var(--coolors-rich-black);
+        grid-column: 'viewer';
+        display: grid;
+        place-items: center;
+        
+        .cheatsheet {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            width: var(--a4-width);
+            height: var(--a4-height);
+            background-color: var(--lighttheme-darkblue);
+
+            .topic-header {
+                .topic-heading {
+                    text-align: center;
+                }
+            }
+
+            .columns-with-cards {
+                display: flex;
+                
+                /* TODO: do this programmatically and dynamically in the component. */
+                .column:nth-child(1) { background-color: var(--lighttheme-yellow); }
+                .column:nth-child(2) { background-color: var(--lighttheme-neutralblue); }
+                .column:nth-child(3) { background-color: var(--lighttheme-darkblue); }
+                .column:nth-child(4) { background-color: var(--lighttheme-orange) }
+                .column:nth-child(5) { background-color: var(--lighttheme-neutralblue) }
+                .column:nth-child(6) { background-color: var(--lighttheme-yellow) }
+            }
+        }
+    
+    }
 }
 
-.header {
-    margin: 40px 0px;
-}
 
 .divider {
     background-color: white;
@@ -110,19 +99,16 @@ textarea {
     margin: 20px 0px;
 }
 
-/* visualisations */
-.columns {
-    display: flex;
-    flex-direction: row;
-}
-
-.rows {
-    display: flex;
-    flex-direction: column;
-}
+/* Grouping styles */
 .list {
     display: flex;
     flex-direction: column;
+}
+
+.item {
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 2px;
 }
 
 .cards {
@@ -135,27 +121,6 @@ textarea {
         border-radius: 20px;
         padding: 20px;
 
-        .knowledge-element {
-            display: grid;
-            place-items: center;
-            margin-top: 20px;
-            list-style: none;
-            border-radius: 20px;
-            padding: 20px;
-            background-color: var(--coolors-midnight-green);
-
-            .image-placeholder {
-                width: 100px;
-                height: 100px;
-                background-color: lightseagreen;
-                border-radius: 100px;
-            }
-
-            .content {
-                display: flex;
-                justify-content: flex-start;
-            }
-        }
     }
 }
 

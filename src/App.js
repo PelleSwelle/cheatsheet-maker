@@ -8,11 +8,15 @@ import ReactHooks from './testResources/ReactHooks';
 
 export default function App() {
     const [file, setFile] = useState(ReactHooks)
-    const [sheetStyle, setSheetStyle] = useState('columns');
-    const [topicDescriptionIsVisible, setTopicDescriptionIsVisible] = useState(true);
-    const [groupDescriptionIsVisible, setGroupDescriptionIsVisible] = useState(true);
-    const [itemDescriptionIsVisible, setItemDescriptionIsVisible] = useState(true);
-    // const [groupingStyle, setGroupingStyle] = useState('columns')
+    const [sheetLayout, setSheetLayout] = useState('columns-with-cards');
+    
+    const [groupingStyle, setGroupingStyle] = useState('column')
+    const [itemStyle, setItemStyle] = useState('card');
+    
+    const [topicDescriptionIsVisible, setTopicDescriptionIsVisible] = useState(false);
+    const [groupDescriptionIsVisible, setGroupDescriptionIsVisible] = useState(false);
+    const [itemDescriptionIsVisible, setItemDescriptionIsVisible] = useState(false);
+    const [orientation, setOrientation] = useState('vertical');
 
     const getSelectedRadio = () => {
         let radios = document.getElementsByName('style-radio')
@@ -26,11 +30,11 @@ export default function App() {
         return selected
     }
 
+    // handlers
     const handleStyleChange = () => {
         let newStyle = getSelectedRadio()
-        setSheetStyle(newStyle)
+        setSheetLayout(newStyle)
     }
-
 
     const handleUpload = () => {
         let file = document.getElementById('file-upload').files[0];
@@ -50,21 +54,30 @@ export default function App() {
     const handleTopicDetailChange = () => { setTopicDescriptionIsVisible(!topicDescriptionIsVisible) }
     const handleGroupingDetailChange = () => { setGroupDescriptionIsVisible(!groupDescriptionIsVisible) }
     const handleItemDetailChange = () => { setItemDescriptionIsVisible(!itemDescriptionIsVisible) }
-
+    
+    const handleOrientationChange = () => { 
+        if (orientation === 'vertical') {
+            setOrientation('horizontal')
+        } else if (orientation === 'horizontal') {
+            setOrientation('vertical')
+        }
+    }
     // const handlegroupingStyleChange = () => { setGroupingStyle()}
     return (
         <div className="App">
             <Workbench
                 onUpload={handleUpload}
                 onStyleChange={handleStyleChange}
+                onOrientationChange={handleOrientationChange}
                 onTopicDetailChange={handleTopicDetailChange}
                 onGroupingDetailChange={handleGroupingDetailChange}
                 onItemDetailChange={handleItemDetailChange}
             />
             <Viewer
                 content={file}
-                style={sheetStyle}
-                // groupingStyle={groupingStyle}
+                layout={sheetLayout}
+                groupingStyle={groupingStyle}
+                itemStyle={itemStyle}
                 topicDescriptionIsVisible={topicDescriptionIsVisible}
                 groupDescriptionIsVisible={groupDescriptionIsVisible}
                 itemDescriptionIsVisible={itemDescriptionIsVisible}

@@ -1,9 +1,10 @@
+import GroupingHeading from "./GroupingHeading";
 import ImageUploadWidget from "./ImageUploadWidget";
 import Item from "./Item"
 import { useState } from "react";
 
 
-export default function Grouping({ style, group, groupDescriptionIsVisible, itemDescriptionIsVisible }) {
+export default function Grouping({ style, itemStyle, group, groupDescriptionIsVisible, itemDescriptionIsVisible }) {
     const [icon, setIcon] = useState();
 
     const handleChange = (e) => { setIcon(URL.createObjectURL(e.target.files[0])) }
@@ -12,10 +13,19 @@ export default function Grouping({ style, group, groupDescriptionIsVisible, item
         e.target.style.height = this.scrollHeight + 'px';
     }
 
+    let items = group.elements.map(item =>
+        <Item
+            key={item.name}
+            name={item.name}
+            style={itemStyle}
+            description={itemDescriptionIsVisible ? item.description : null}
+        />
+    )
+
     return (
         <div className={style}>
-            <div className="group-heading">
-                <h2> {group.name} </h2>
+            <div className="grouping-header">
+                <GroupingHeading name={group.name} />
                 <img className="group-icon" src={icon} />
                 {icon ? null : (<ImageUploadWidget onChange={handleChange} />)}
             </div>
@@ -30,14 +40,8 @@ export default function Grouping({ style, group, groupDescriptionIsVisible, item
                     ) 
                     : null
                 }
-                <ul>
-                    {group.elements.map(item =>
-                        <Item
-                            key={item.name}
-                            name={item.name}
-                            description={itemDescriptionIsVisible ? item.description : null}
-                        />
-                    )}
+                <ul className="items">
+                    {items}
                 </ul>
             </div>
         </div>

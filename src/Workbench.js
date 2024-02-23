@@ -3,8 +3,16 @@ import StyleSwitcher from './components/StyleSwitcher';
 import Exporter from './components/Exporter';
 import DetailSwitcher from './components/DetailSwitcher';
 import Uploader from './components/Uploader';
+import OrientationSwitcher from './components/OrientationSwitcher';
 
-export default function Workbench({onUpload, onStyleChange, onTopicDetailChange, onGroupingDetailChange, onItemDetailChange}) {
+export default function Workbench({
+    onUpload, 
+    onStyleChange, 
+    onOrientationChange,
+    onTopicDetailChange, 
+    onGroupingDetailChange, 
+    onItemDetailChange
+    }) {
     
     return (
         <div className="workbench">
@@ -18,6 +26,8 @@ export default function Workbench({onUpload, onStyleChange, onTopicDetailChange,
             </fieldset>
 
             <Uploader onUpload={onUpload}/>
+
+            <OrientationSwitcher onChange={onOrientationChange}/>
 
             <StyleSwitcher onChange={onStyleChange} />
             <DetailSwitcher 

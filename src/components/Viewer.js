@@ -1,14 +1,22 @@
-import Item from './Item';
-import ReactHooks from '../testResources/ReactHooks';
+import Cheatsheet from '../Cheatsheet';
 import Grouping from './Grouping';
 import TopicHeading from './TopicHeading';
 
-export default function Viewer({content, style, groupingStyle, topicDescriptionIsVisible, groupDescriptionIsVisible, itemDescriptionIsVisible }) {
+export default function Viewer({
+    content, 
+    layout, 
+    groupingStyle, 
+    itemStyle,
+    topicDescriptionIsVisible, 
+    groupDescriptionIsVisible, 
+    itemDescriptionIsVisible 
+    }) {
 
-    let groups = content.elements.map(group =>
+    let groupings = content.elements.map(group =>
         <Grouping
             key={group.name}
             style={groupingStyle}
+            itemStyle={itemStyle}
             group={group} 
             groupDescriptionIsVisible={groupDescriptionIsVisible} 
             itemDescriptionIsVisible={itemDescriptionIsVisible} 
@@ -17,12 +25,12 @@ export default function Viewer({content, style, groupingStyle, topicDescriptionI
 
     return (
         <div className="viewer">
-            <TopicHeading name={content.name}/>
-            <p>{topicDescriptionIsVisible ? content.description : null}</p>
-            <div className='divider'></div>
-            <div className={style}>
-                {groups}
-            </div>
+            <Cheatsheet 
+                content={content} 
+                topicDescriptionIsVisible={topicDescriptionIsVisible}
+                layout={layout}
+                groupings={groupings}
+                />
         </div>
     )
 }

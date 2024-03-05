@@ -1,14 +1,23 @@
-export default function OrientationSwitcher({onChange}) {
+import Radio from "./Radio";
+
+export default function OrientationSwitcher({ onChange }) {
     return (
         <div className="orientation-switcher">
-            <fieldset className="orientation-fieldset">
-                <label>Hertical
-                    <input type="radio" id="orientation-radio" name="orientation-radio" value='vertical' checked={true} onChange={onChange}/>
-                </label>
-                <label>Horizontal
-                    <input type="radio" id="orientation-radio" name="orientation-radio" value='horizontal' onChange={onChange}/>
-                </label>
-            </fieldset>
+            <h2>Orientation</h2>
+            <Radio
+                name='orientation-radio'
+                value='vertical'
+                onChange={onChange}
+                title={'Vertical'}
+                checked={true}
+            />
+
+            <Radio
+                name={'orientation-radio'}
+                value={'horizontal'}
+                onChange={onChange}
+                title={'Horizontal'}
+            />
         </div>
     )
 }

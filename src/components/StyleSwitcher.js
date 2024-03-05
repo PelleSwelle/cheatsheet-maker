@@ -1,24 +1,33 @@
+import Radio from "./Radio"
+
 export default function StyleSwitcher({onChange}) {
     return (
-        <fieldset className="type-fieldset">
-            <legend>Display as</legend>
-            
-            <label>Cards
-                <input type="radio" id="style-radio" name="style-radio" value='cards' checked={true}  onChange={onChange}></input>
-            </label>
-
-            <label>Atlas
-                <input type="radio" id="style-radio" name="style-radio" value='atlas' onChange={onChange}></input>
-            </label>
-            
-            <label>List
-                <input type="radio" id="style-radio" name="style-radio" value='list' onChange={onChange}></input>
-            </label>
-            
-            <label>Tree
-                <input type="radio" id="style-radio" name="style-radio" value='tree' onChange={onChange}></input>
-            </label>
-            
-        </fieldset>
+        <div>
+            <Radio
+                name='style-radio'
+                value='cards'
+                onChange={onChange}
+                title='Cards'
+                checked={true}
+            />
+            <Radio
+                name='style-radio'
+                value='atlas'
+                title='atlas'
+                onChange={onChange}
+            />
+            <Radio
+                name='style-radio'
+                value='list'
+                onChange={onChange}
+                title='List'
+            />
+            <Radio
+                name='style-radio'
+                value='tree'
+                onChange={onChange}
+                title='Tree'
+            />
+        </div>
     )
 }

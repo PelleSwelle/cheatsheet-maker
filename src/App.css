@@ -37,11 +37,20 @@ textarea {
 
 .group-icon { height: 20px; }
 
+fieldset {
+    border: none;
+}
+
+.radio {
+    
+}
+
 /* components */
 .App {
     display: grid;
-    grid-template-columns: [left] 200px [right] 1fr;
+    grid-template-columns: [left] 400px [right] 1fr;
     min-height: 100vh;
+    background-color: var(--coolors-rich-black);
 
     .workbench {
         grid-column: 'workbench';
@@ -50,12 +59,28 @@ textarea {
         min-height: 100vh;
     
         >* {
-            margin: 20px;
+            margin: 10px;
         }
+
+        .settings-card {
+            padding: 20px;
+            border-radius: var(--std-rounding);
+        }
+
+        .content-settings {
+            background-color: var(--lighttheme-neutralblue);
+        }
+
+        .style-settings {
+            background-color: var(--lighttheme-yellow);
+
+            display: flex;
+            flex-direction: column;
+        }
+
     }
     
     .viewer {
-        background-color: var(--coolors-rich-black);
         grid-column: 'viewer';
         display: grid;
         place-items: center;

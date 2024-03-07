@@ -1,6 +1,6 @@
-import Checkbox from "./Checkbox"
+import Checkbox from "../controls/Checkbox"
 
-export default function DetailSwitcher({ onTopicDetailChange, onGroupingDetailChange, onItemDetailChange }) {
+export default function DetailSettingsCard({ onTopicDetailChange, onGroupingDetailChange, onItemDetailChange }) {
 
     return (
         <div className="content-settings settings-card">

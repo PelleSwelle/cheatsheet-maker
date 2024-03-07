@@ -1,13 +1,13 @@
-import './App.css';
-import Viewer from './components/Viewer';
+import './App.css'
 import { useState } from 'react';
-import Workbench from './Workbench';
-import Cheatsheet from './Cheatsheet';
+import ReactHooks from './testResources/ReactHooks.json'
+import Workbench from './components/workbench/Workbench'
+import Viewer from './components/viewer/Viewer'
+import Cheatsheet from './components/viewer/Cheatsheet'
 
-// default data
-import ReactHooks from './testResources/ReactHooks';
 
-export default function App() {
+
+function App() {
     const [file, setFile] = useState(ReactHooks)
     const [sheetLayout, setSheetLayout] = useState('columns-with-cards');
 
@@ -89,3 +89,5 @@ export default function App() {
         </div>
     );
 }
+
+export default App

@@ -1,9 +1,6 @@
-import TextInput from './TextInput';
-import StyleSettingsCard from './components/StyleSettingsCard';
-import Exporter from './components/Exporter';
-import DetailSwitcher from './components/DetailSwitcher';
-import Uploader from './components/Uploader';
-import OrientationSwitcher from './components/OrientationSwitcher';
+import StyleSettingsCard from './StyleSettingsCard';
+import DetailSettingsCard from './DetailSettingsCard'
+import IOCard from './IOCard';
 
 export default function Workbench({
     onUpload, 
@@ -18,17 +15,20 @@ export default function Workbench({
         <div className="workbench">
             <h1>Cheatsheet Maker</h1>
 
-            <DetailSwitcher 
+            <DetailSettingsCard 
                 onTopicDetailChange={onTopicDetailChange}
                 onGroupingDetailChange={onGroupingDetailChange}
                 onItemDetailChange={onItemDetailChange}
             />
+
             <StyleSettingsCard onChange={onStyleChange} />
 
-            <div className='import-export-card'>
+            <IOCard onUpload={onUpload}/>
+            
+            {/* <div className='import-export-card'>
                 <Uploader onUpload={onUpload}/>
                 <Exporter />
-            </div>
+            </div> */}
         </div>
     )
 }

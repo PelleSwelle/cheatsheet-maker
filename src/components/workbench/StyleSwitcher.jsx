@@ -1,4 +1,4 @@
-import Radio from "./Radio"
+import Radio from "../controls/Radio"
 
 export default function StyleSwitcher({onChange}) {
     return (

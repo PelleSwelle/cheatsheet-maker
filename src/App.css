@@ -6,13 +6,11 @@ textarea {
     background-color: rgba(255, 255, 255, 0);
     color: white;
     width: 100%;
-    /* height: fit-content; */
     border: none;
     font-family: "Cutive Mono", monospace;
     font-style: normal;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    /* font-weight: 400; */
     resize: none;
     margin: 0;
     padding: 0;
@@ -31,19 +29,31 @@ textarea {
         cursor: pointer;
         font-size: .4em; 
     }
+}
 
-    input[type='file'] { display: none; }
+input[type='file'] { display: none; }
+
+.custom-file-upload {
+    background-color: white;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 10px;
+    margin: 10px;
+    color: black;
+}
+
+button {
+    background-color: white;
+    color: black;
+    font-family: 'Courier New', Courier, monospace;
+    border-radius: var(--std-rounding);
+    border: none;
+    margin: 20px;
 }
 
 .group-icon { height: 20px; }
 
-fieldset {
-    border: none;
-}
-
-.radio {
-    
-}
 
 /* components */
 .App {
@@ -51,79 +61,94 @@ fieldset {
     grid-template-columns: [left] 400px [right] 1fr;
     min-height: 100vh;
     background-color: var(--coolors-rich-black);
+}
 
-    .workbench {
-        grid-column: 'workbench';
-        padding: var(--st-padding);
-        background-color: var(--workbench-color);
-        min-height: 100vh;
+.workbench {
+    grid-column: 'workbench';
+    padding: var(--st-padding);
+    background-color: var(--workbench-color);
+    min-height: 100vh;
     
-        >* {
-            margin: 10px;
-        }
-
-        .settings-card {
-            padding: 20px;
-            border-radius: var(--std-rounding);
-        }
-
-        .content-settings {
-            background-color: var(--lighttheme-neutralblue);
-        }
-
-        .style-settings {
-            background-color: var(--lighttheme-yellow);
-
-            display: flex;
-            flex-direction: column;
-        }
-
+    >* {
+        margin: 10px;
     }
+
     
-    .viewer {
-        grid-column: 'viewer';
-        display: grid;
-        place-items: center;
-        
-        .cheatsheet {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
+}
+.settings-card {
+    padding: 20px;
+    border-radius: var(--std-rounding);
+}
 
-            width: var(--a4-width);
-            height: var(--a4-height);
-            background-color: var(--lighttheme-darkblue);
+.content-settings {
+    background-color: var(--lighttheme-neutralblue);
+}
 
-            .topic-heading {
-                height: fit-content;
-                text-align: center;
-            }
+.style-settings {
+    background-color: var(--lighttheme-yellow);
 
-            .sheet-content {
-                height: 100%;
-                display: flex;
-                
-                /* TODO: do this programmatically and dynamically in the component. */
-                .grouping:nth-child(1) { background-color: var(--lighttheme-yellow); }
-                .grouping:nth-child(2) { background-color: var(--lighttheme-neutralblue); }
-                .grouping:nth-child(3) { background-color: var(--lighttheme-red); }
-                .grouping:nth-child(4) { background-color: var(--lighttheme-orange); }
-                .grouping:nth-child(5) { background-color: var(--lighttheme-neutralblue); }
-                .grouping:nth-child(6) { background-color: var(--lighttheme-yellow); }
-                
-                .grouping {
-                    padding: 10px 10px;
+    display: flex;
+    flex-direction: column;
+}
 
-                    .item {
-                        border: 1px solid black;
-                        margin: 20px 0px;
-                    }
-                }
-            }
-        }
-    
+.io-card {
+    background-color: var(--lighttheme-orange);
+    border-radius: var(--std-rounding);
+    display: flex;
+    flex-direction: column;
+
+    >* {
+        height: 20px;
+        padding: 20px;
+        margin: 20px;
+        text-align: center;
     }
+}
+
+.viewer {
+    grid-column: 'viewer';
+    display: grid;
+    place-items: center;
+    
+    
+}
+.cheatsheet {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    width: var(--a4-width);
+    height: var(--a4-height);
+    background-color: var(--lighttheme-darkblue);
+
+}
+.topic-heading {
+    height: fit-content;
+    text-align: center;
+}
+
+.sheet-content {
+    height: 100%;
+    display: flex;
+    
+}
+
+/* TODO: do this programmatically and dynamically in the component. */
+.grouping:nth-child(1) { background-color: var(--lighttheme-yellow); }
+.grouping:nth-child(2) { background-color: var(--lighttheme-neutralblue); }
+.grouping:nth-child(3) { background-color: var(--lighttheme-red); }
+.grouping:nth-child(4) { background-color: var(--lighttheme-orange); }
+.grouping:nth-child(5) { background-color: var(--lighttheme-neutralblue); }
+.grouping:nth-child(6) { background-color: var(--lighttheme-yellow); }
+
+.grouping {
+    padding: 10px 10px;
+
+}
+.item {
+    border: 1px solid black;
+    margin: 20px 0px;
 }
 
 

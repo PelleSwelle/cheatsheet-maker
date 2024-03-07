@@ -1,6 +1,6 @@
-import TopicHeading from "./components/TopicHeading"
-import Grouping from "./components/Grouping"
-import Item from "./components/Item"
+import TopicHeading from './TopicHeading'
+import Grouping from "./Grouping"
+import Item from "./Item"
 
 export default function Cheatsheet({
     content, 
@@ -14,11 +14,10 @@ export default function Cheatsheet({
             group={group} 
             descriptionIsVisible={groupingDescriptionIsVisible} 
             itemDescriptionIsVisible={itemDescriptionIsVisible} 
-        >
-            { 
-                group.elements.map(item => 
-                    <Item item={item} /> 
-                )}
+        > { 
+            group.elements.map(item => 
+                <Item item={item} /> 
+            )}
         </Grouping>
     )
     

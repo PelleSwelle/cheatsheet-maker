@@ -1,5 +1,4 @@
 import OrientationSwitcher from "./OrientationSwitcher";
-import Radio from "./Radio";
 import StyleSwitcher from "./StyleSwitcher";
 
 export default function StyleSettingsCard({ onStyleChange, onOrientationChange }) {

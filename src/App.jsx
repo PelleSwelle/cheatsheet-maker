@@ -13,7 +13,6 @@ function App() {
 
     const [groupingStyle, setGroupingStyle] = useState('column')
     const [itemStyle, setItemStyle] = useState('card');
-
     const [topicDescriptionIsVisible, setTopicDescriptionIsVisible] = useState(true);
     const [groupingDescriptionIsVisible, setGroupingDescriptionIsVisible] = useState(false);
     const [itemDescriptionIsVisible, setItemDescriptionIsVisible] = useState(false);
@@ -73,6 +72,7 @@ function App() {
                 onTopicDetailChange={handleTopicDetailChange}
                 onGroupingDetailChange={handleGroupingDetailChange}
                 onItemDetailChange={handleItemDetailChange}
+                
             />
             <Viewer
                 groupingStyle={groupingStyle}
@@ -84,6 +84,7 @@ function App() {
                     groupingDescriptionIsVisible={groupingDescriptionIsVisible}
                     itemDescriptionIsVisible={itemDescriptionIsVisible}
                     layout={sheetLayout}
+                    orientation={orientation}
                 />
             </Viewer>
         </div>

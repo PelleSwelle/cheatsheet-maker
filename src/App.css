@@ -118,11 +118,20 @@ button {
     align-items: center;
     justify-content: flex-start;
 
-    width: var(--a4-width);
-    height: var(--a4-height);
     background-color: var(--lighttheme-darkblue);
-
+    
 }
+
+.vertical {
+    height: var(--a4-height);
+    width: var(--a4-width);
+}
+
+.horizontal {
+    height: var(--a4-width);
+    width: var(--a4-height);
+}
+
 .topic-heading {
     height: fit-content;
     text-align: center;

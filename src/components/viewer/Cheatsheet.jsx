@@ -6,8 +6,12 @@ export default function Cheatsheet({
     content, 
     topicDescriptionIsVisible, 
     groupingDescriptionIsVisible, 
-    itemDescriptionIsVisible, 
+    itemDescriptionIsVisible,
+    orientation
 }) {
+
+    const className = 'cheatsheet ' + orientation;
+
     let sheetContent = content.elements.map(group =>
         <Grouping
             key={group.name}
@@ -16,13 +20,16 @@ export default function Cheatsheet({
             itemDescriptionIsVisible={itemDescriptionIsVisible} 
         > { 
             group.elements.map(item => 
-                <Item item={item} /> 
+                <Item 
+                    key={item.id}
+                    item={item} 
+                /> 
             )}
         </Grouping>
     )
     
     return (
-        <div className="cheatsheet">
+        <div className={className}>
             <TopicHeading name={content.name}/>
             {topicDescriptionIsVisible 
                 ? (<p className='topic-description'>{content.description}</p>)  

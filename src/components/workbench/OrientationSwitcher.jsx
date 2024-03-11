@@ -9,7 +9,6 @@ export default function OrientationSwitcher({ onChange }) {
                 value='vertical'
                 onChange={onChange}
                 title={'Vertical'}
-                checked={true}
             />
 
             <Radio

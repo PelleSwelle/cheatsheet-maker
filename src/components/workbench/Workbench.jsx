@@ -21,14 +21,10 @@ export default function Workbench({
                 onItemDetailChange={onItemDetailChange}
             />
 
-            <StyleSettingsCard onChange={onStyleChange} />
+            <StyleSettingsCard onChange={onStyleChange} onOrientationChange={onOrientationChange} />
 
             <IOCard onUpload={onUpload}/>
             
-            {/* <div className='import-export-card'>
-                <Uploader onUpload={onUpload}/>
-                <Exporter />
-            </div> */}
         </div>
     )
 }

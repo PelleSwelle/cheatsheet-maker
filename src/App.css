@@ -115,11 +115,24 @@ button {
 .cheatsheet {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between;
 
     background-color: var(--lighttheme-darkblue);
     
+    .sheet-header {
+        text-align: center;
+        padding: 10px 40px;
+    }
+
+    .sheet-content {
+        display: flex;
+        flex-grow: 1;
+        width: 100%;
+    }
+}
+
+.item-description {
+    margin: 0px;
 }
 
 .vertical {
@@ -132,16 +145,6 @@ button {
     width: var(--a4-height);
 }
 
-.topic-heading {
-    height: fit-content;
-    text-align: center;
-}
-
-.sheet-content {
-    height: 100%;
-    display: flex;
-    
-}
 
 /* TODO: do this programmatically and dynamically in the component. */
 .grouping:nth-child(1) { background-color: var(--lighttheme-yellow); }
@@ -152,12 +155,7 @@ button {
 .grouping:nth-child(6) { background-color: var(--lighttheme-yellow); }
 
 .grouping {
-    padding: 10px 10px;
-
-}
-.item {
-    border: 1px solid black;
-    margin: 20px 0px;
+    /* padding: 10px 10px; */
 }
 
 
@@ -172,10 +170,6 @@ button {
 .list {
     display: flex;
     flex-direction: column;
-}
-
-.item {
-    
 }
 
 .cards {

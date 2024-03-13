@@ -1,4 +1,3 @@
-import GroupingHeading from "./GroupingHeading";
 import ImageUploadWidget from "./ImageUploadWidget";
 import { useState } from "react";
 
@@ -22,7 +21,7 @@ export default function Grouping({
     return (
         <div className='grouping'>
             <div className="grouping-header">
-                <GroupingHeading name={group.name} />
+                <h2 contentEditable={true} suppressContentEditableWarning={true}>{group.name}</h2>
                 <img className="group-icon" src={icon} />
                 {icon ? null : (<ImageUploadWidget onChange={handleIconChange} />)}
             </div>

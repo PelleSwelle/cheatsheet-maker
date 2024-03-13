@@ -1,6 +1,7 @@
 import TopicHeading from './TopicHeading'
 import Grouping from "./Grouping"
 import Item from "./Item"
+import { generateId } from '../../utils/IdGenerator';
 
 export default function Cheatsheet({
     content, 
@@ -14,14 +15,14 @@ export default function Cheatsheet({
 
     let sheetContent = content.elements.map(group =>
         <Grouping
-            key={group.name}
+            key={generateId()}
             group={group} 
             descriptionIsVisible={groupingDescriptionIsVisible} 
             itemDescriptionIsVisible={itemDescriptionIsVisible} 
         > { 
             group.elements.map(item => 
                 <Item 
-                    key={item.id}
+                    key={generateId()}
                     item={item} 
                 /> 
             )}

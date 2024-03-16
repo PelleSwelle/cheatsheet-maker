@@ -1,0 +1,52 @@
+@import './index.css';
+
+.workbench {
+    grid-column: 'workbench';
+    padding: var(--st-padding);
+    background-color: var(--workbench-color);
+    min-height: 100vh;
+    
+    >* {
+        margin: 10px;
+    }
+}
+
+.settings-card {
+    padding: 20px;
+    border-radius: var(--std-rounding);
+}
+
+.content-settings {
+    background-color: var(--lighttheme-neutralblue);
+}
+
+.style-settings {
+    background-color: var(--lighttheme-yellow);
+
+    display: flex;
+    flex-direction: column;
+}
+
+.io-card {
+    background-color: var(--lighttheme-orange);
+    border-radius: var(--std-rounding);
+    display: flex;
+    flex-direction: column;
+
+    >* {
+        height: 20px;
+        padding: 20px;
+        margin: 20px;
+        text-align: center;
+    }
+}
+
+.custom-file-upload {
+    background-color: white;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 10px;
+    margin: 10px;
+    color: black;
+}

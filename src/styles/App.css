@@ -1,0 +1,12 @@
+@import './index.css';
+@import './workbench.css';
+@import './viewer.css';
+
+
+/* components */
+.App {
+    display: grid;
+    grid-template-columns: [left] 400px [right] 1fr;
+    min-height: 100vh;
+    background-color: var(--coolors-rich-black);
+}

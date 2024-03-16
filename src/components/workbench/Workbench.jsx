@@ -1,14 +1,15 @@
 import StyleSettingsCard from './StyleSettingsCard';
 import DetailSettingsCard from './DetailSettingsCard'
 import IOCard from './IOCard';
-
+import { FontController } from './FontController';
 export default function Workbench({
     onUpload, 
     onStyleChange, 
     onOrientationChange,
     onTopicDetailChange, 
     onGroupingDetailChange, 
-    onItemDetailChange
+    onItemDetailChange,
+    onFontSizeSelect
     }) {
     
     return (
@@ -20,9 +21,9 @@ export default function Workbench({
                 onGroupingDetailChange={onGroupingDetailChange}
                 onItemDetailChange={onItemDetailChange}
             />
-
             <StyleSettingsCard onChange={onStyleChange} onOrientationChange={onOrientationChange} />
-
+            
+            <FontController onSelectSize={onFontSizeSelect}/>
             <IOCard onUpload={onUpload}/>
             
         </div>

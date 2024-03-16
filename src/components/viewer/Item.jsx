@@ -1,16 +1,17 @@
-export default function Item({item}) {
+import { Text } from "@chakra-ui/react"
 
-    return(
+export default function Item({ item, descriptionIsVisible, descriptionFontSize }) {
+
+    const className = 'item-description ' + (descriptionIsVisible ? 'visible' : 'hidden')
+
+    return (
         <div className='item' key={item.id}>
             <div className="image-placeholder"></div>
             <div className="item-content">
-                <h3 contentEditable={true} suppressContentEditableWarning={true}>{item.name}</h3>
-                <p 
-                    className="item-description" 
-                    contentEditable={true} 
-                    suppressContentEditableWarning={true}>
+                <h3 contentEditable={true} suppressContentEditableWarning>{item.name}</h3>
+                <Text fontSize={descriptionFontSize} contentEditable={true} suppressContentEditableWarning>
                     {item.description}
-                </p>
+                </Text>
             </div>
 
             {/* implement the rest of the things */}

@@ -1,0 +1,42 @@
+{
+    "name": "7 Japanese techinques to overcome laziness",
+    "description": "",
+    "elements":
+    [
+        {
+            "name": "lkigai",
+            "translation": "life purpose",
+            "description": "Discover your purpose in life. Find something that makes you to wake up every day, aligning with your talents, passions, profession, and contribution to this world. Your purpose fuels you."
+        },
+        {
+            "name": "Kaizen",
+            "translation": "continuous improvement",
+            "description": "Focus on small improvements each day instead of trying to do everything at once. Make progress little by little, sometimes involving others"
+        },
+        {
+            "name": "Pomodoro technique",
+            "translation": "",
+            "description": "Work for 25 minutes without distractions, take a break for 5 minutes, and then repeat. It’s a great way to get more done in less time."
+        },
+        {
+            "name": "Hara Hachi Bu",
+            "translation": "Eat until you’re 80% full",
+            "description": "Eat slowly and not to stuff yourself. When you’re 80% full, you’ll feel satisfied. Also increases your energy levels and improves mood."
+        },
+        {
+            "name": "Shoshin",
+            "translation": "Beginners mind",
+            "description": "Approach every task like a beginner with the same curiosity as if you were doing it for the first time, from work to relationships to personal growth."
+        },
+        {
+            "name": "Wabi-sabi",
+            "translation": "Beauty of imperfection",
+            "description": "Embrace imperfection. Instead of stressing over every little detail, focus on what’s important and find beauty in simplicity. Taking action is better than waiting for perfection."
+        },
+        {
+            "name": "Kakeibo",
+            "translation": "Household financial ledger",
+            "description": "Make a budget and track youir expenses and cultivate mindful spending habits. Set financial goals and work towards it. Necessity is the mother of all invention."
+        }
+    ]
+}    

@@ -1,9 +1,11 @@
-import './App.css'
+import './styles/App.css';
 import { useState } from 'react';
 import ReactHooks from './testResources/ReactHooks.json'
 import Workbench from './components/workbench/Workbench'
 import Viewer from './components/viewer/Viewer'
 import Cheatsheet from './components/viewer/Cheatsheet'
+import { getSelectedRadio } from './utils/GetSelectedRadio'
+import handleUpload from './utils/HandleUpload';
 
 
 
@@ -13,42 +15,16 @@ function App() {
 
     const [groupingStyle, setGroupingStyle] = useState('column')
     const [itemStyle, setItemStyle] = useState('card');
-    const [topicDescriptionIsVisible, setTopicDescriptionIsVisible] = useState(true);
+    const [topicDescriptionIsVisible, setTopicDescriptionIsVisible] = useState(false);
     const [groupingDescriptionIsVisible, setGroupingDescriptionIsVisible] = useState(false);
     const [itemDescriptionIsVisible, setItemDescriptionIsVisible] = useState(false);
     const [orientation, setOrientation] = useState('vertical');
-
-    const getSelectedRadio = () => {
-        let radios = document.getElementsByName('style-radio')
-        let selected;
-
-        for (let radio of radios) {
-            if (radio.checked) {
-                selected = radio.value
-            }
-        }
-        return selected
-    }
-
+    const [itemDescriptionFontSize, setItemDescriptionFontSize] = useState('xs')
+    
     // handlers
     const handleStyleChange = () => {
         let newStyle = getSelectedRadio()
         setSheetLayout(newStyle)
-    }
-
-    const handleUpload = () => {
-        let file = document.getElementById('file-upload').files[0];
-        let reader = new FileReader();
-        reader.readAsBinaryString(file);
-
-        reader.onload = () => {
-            console.log(reader.result);
-            let obj = JSON.parse(reader.result)
-            setFile(obj)
-        }
-        reader.onerror = () => {
-            console.log(reader.error);
-        }
     }
 
     const handleTopicDetailChange = () => { setTopicDescriptionIsVisible(!topicDescriptionIsVisible) }
@@ -62,7 +38,12 @@ function App() {
             setOrientation('vertical')
         }
     }
-    // const handlegroupingStyleChange = () => { setGroupingStyle()}
+
+    const handleItemDescriptionFontSizeChange = () => {
+        const select = document.getElementById('item-description-font-size-select')
+        itemDescriptionFontSize = setItemDescriptionFontSize(select.value)
+    }
+
     return (
         <div className="App">
             <Workbench
@@ -72,7 +53,8 @@ function App() {
                 onTopicDetailChange={handleTopicDetailChange}
                 onGroupingDetailChange={handleGroupingDetailChange}
                 onItemDetailChange={handleItemDetailChange}
-                
+                onItemDescriptionFontSizeChange={handleItemDescriptionFontSizeChange}
+                onFontSizeSelect={handleItemDescriptionFontSizeChange}
             />
             <Viewer
                 groupingStyle={groupingStyle}
@@ -80,11 +62,14 @@ function App() {
             >
                 <Cheatsheet
                     content={file}
+
                     topicDescriptionIsVisible={topicDescriptionIsVisible}
                     groupingDescriptionIsVisible={groupingDescriptionIsVisible}
                     itemDescriptionIsVisible={itemDescriptionIsVisible}
+                    
                     layout={sheetLayout}
                     orientation={orientation}
+                    itemDescriptionFontSize={itemDescriptionFontSize}
                 />
             </Viewer>
         </div>

@@ -14,10 +14,6 @@ export default function Grouping({
         setIcon(URL.createObjectURL(icon)) 
     }
 
-    const onDescriptionChange = (e) => {
-        e.target.style.height = this.scrollHeight + 'px';
-    }
-
     return (
         <div className='grouping'>
             <div className="grouping-header">
@@ -26,18 +22,13 @@ export default function Grouping({
                 {icon ? null : (<ImageUploadWidget onChange={handleIconChange} />)}
             </div>
 
+            {descriptionIsVisible 
+                ? <p>{group.description}</p> 
+                : null
+            }
             <div className="divider"></div>
 
             <div className='group-content'>
-                {descriptionIsVisible 
-                    ? (<textarea 
-                        name="text" 
-                        className="group-description" 
-                        onChange={onDescriptionChange}  
-                        value={group.description}/>
-                    ) 
-                    : null
-                }
                 <ul className="items">
                     { children }
                 </ul>

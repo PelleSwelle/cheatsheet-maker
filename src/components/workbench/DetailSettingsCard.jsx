@@ -10,18 +10,21 @@ export default function DetailSettingsCard({ onTopicDetailChange, onGroupingDeta
                 name='description'
                 label={'Topic Description'}
                 onChange={onTopicDetailChange} 
+                defaultChecked={false}
             />
             
             <Checkbox
                 name='description'
                 label={'Grouping description'}
                 onChange={onGroupingDetailChange}
+                defaultChecked={false}
             />
 
             <Checkbox
                 name='description'
                 label={'Item Description'}
                 onChange={onItemDetailChange}
+                defaultChecked={false}
             />
         </div>
     )

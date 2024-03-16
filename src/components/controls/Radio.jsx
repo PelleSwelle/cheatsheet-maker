@@ -1,16 +1,19 @@
 // name and id = style-radio
 
-export default function Radio({name, value, onChange, title}) {
+export default function Radio({ name, value, onChange, title, isDefault = false }) {
     return (
         <div className="radio">
-            <input
-                type="radio"
-                id={name}
-                name={name}
-                value={value}
-                onChange={onChange}
-            />
-            <label>{title}</label>
+            <label>
+                <input
+                    type="radio"
+                    id={name}
+                    name={name}
+                    value={value}
+                    onChange={onChange}
+                    defaultChecked={isDefault}
+                />
+                {title}
+            </label>
         </div>
     )
 }

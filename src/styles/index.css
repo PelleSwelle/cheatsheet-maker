@@ -1,19 +1,35 @@
 body {
     margin: 0;
-    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-    font-weight: 400;
+      
+    font-family: Helvetica, Arial, sans-serif;
     font-style: normal;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 * {
     font-size: 14px;
-    color: white;
+    /* color: white; */
 }
+
+* {
+    transition: all 1s;
+}
+
+input[type='file'] { display: none; }
+
 
 h1, h2, h3, h4, h5, h6 { 
     margin: 0px; 
     padding: 0px; 
+}
+
+button {
+    background-color: white;
+    color: black;
+    font-family: 'Courier New', Courier, monospace;
+    border-radius: var(--std-rounding);
+    border: none;
+    margin: 20px;
 }
 
 code {
@@ -53,14 +69,6 @@ code {
 
     /* semantic colors */
     --workbench-color: gray;
-}
-
-/* headings for the different levels */
-.topic-heading { font-size: 2em; }
-
-.grouping-header { 
-    /* font-size: 1.3em;  */
-    display: flex;
 }
 
 

@@ -1,0 +1,109 @@
+.viewer {
+    grid-column: 'viewer';
+    display: grid;
+    place-items: center;
+}
+
+.grouping-header { 
+    display: flex;
+}
+
+.visible {
+    height: fit-content;
+}
+
+.hidden {
+    height: 0px;
+    overflow: hidden;
+}
+
+.cheatsheet {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    background-color: var(--lighttheme-darkblue);
+    
+    .sheet-header {
+        text-align: center;
+        padding: 10px 40px;
+    }
+
+    .sheet-content {
+        display: flex;
+        flex-grow: 1;
+        width: 100%;
+    }
+}
+
+.vertical {
+    height: var(--a4-height);
+    width: var(--a4-width);
+}
+
+.horizontal {
+    height: var(--a4-width);
+    width: var(--a4-height);
+}
+
+.image-upload-widget {
+    display: flex;
+    height: fit-content;
+    padding-bottom: 3px;
+    border-radius: 20px;
+    cursor: pointer;
+    border: 1px solid black;
+    >* { 
+        cursor: pointer;
+        font-size: .4em; 
+    }
+}
+
+.group-icon { height: 20px; }
+
+
+.grouping {
+    padding: 10px 10px;
+
+    .item {
+        margin: 10px 0px;
+    }
+}
+/* TODO: do this programmatically and dynamically in the component. */
+.grouping:nth-child(1) { background-color: var(--lighttheme-yellow); }
+.grouping:nth-child(2) { background-color: var(--lighttheme-neutralblue); }
+.grouping:nth-child(3) { background-color: var(--lighttheme-red); }
+.grouping:nth-child(4) { background-color: var(--lighttheme-orange); }
+.grouping:nth-child(5) { background-color: var(--lighttheme-neutralblue); }
+.grouping:nth-child(6) { background-color: var(--lighttheme-yellow); }
+
+
+.item-description {
+    margin: 0px;
+}
+
+.divider {
+    background-color: white;
+    height: 2px;
+    width: 100%;
+    margin: 20px 0px;
+}
+
+/* Grouping styles */
+.list {
+    display: flex;
+    flex-direction: column;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+
+    >* {
+        border: 2px solid white;
+        border-radius: 20px;
+        padding: 20px;
+
+    }
+}

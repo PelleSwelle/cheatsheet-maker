@@ -3,12 +3,19 @@ import Radio from "../controls/Radio"
 export default function StyleSwitcher({onChange}) {
     return (
         <div>
+            <h2>Display as...</h2>
+            <Radio
+                name='style-radio'
+                value='columns'
+                onChange={onChange}
+                title={'columns'}
+                isDefault={true}
+            />
             <Radio
                 name='style-radio'
                 value='cards'
                 onChange={onChange}
                 title='Cards'
-                checked={true}
             />
             <Radio
                 name='style-radio'

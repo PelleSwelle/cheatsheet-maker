@@ -1,5 +1,5 @@
-export const getSelectedRadio = () => {
-    let radios = document.getElementsByName('style-radio')
+export const getSelectedRadio = (radioGroup) => {
+    let radios = document.getElementsByName(radioGroup)
     let selected;
 
     for (let radio of radios) {

@@ -1,35 +1,51 @@
 import './styles/App.css';
 import { useState } from 'react';
+import DetailSettingsCard from './components/workbench/DetailSettingsCard'
+import StyleSettingsCard from './components/workbench/StyleSettingsCard';
+
+
+// test files
 import ReactHooks from './testResources/ReactHooks.json'
+import JapaneseTechniques from './testResources/JapaneseTechniques.json'
+import designPatterns from './testResources/DesignPatterns.json'
 import Workbench from './components/workbench/Workbench'
+import IOCard from './components/workbench/IOCard'
+import { FontController } from './components/workbench/FontController';
 import Viewer from './components/viewer/Viewer'
 import Cheatsheet from './components/viewer/Cheatsheet'
 import { getSelectedRadio } from './utils/GetSelectedRadio'
 import handleUpload from './utils/HandleUpload';
+import { Box, Divider, Heading } from '@chakra-ui/react';
 
 
 
 function App() {
-    const [file, setFile] = useState(ReactHooks)
-    const [sheetLayout, setSheetLayout] = useState('columns-with-cards');
+    const [file, setFile] = useState(designPatterns)
 
-    const [groupingStyle, setGroupingStyle] = useState('column')
-    const [itemStyle, setItemStyle] = useState('card');
-    const [topicDescriptionIsVisible, setTopicDescriptionIsVisible] = useState(false);
-    const [groupingDescriptionIsVisible, setGroupingDescriptionIsVisible] = useState(false);
-    const [itemDescriptionIsVisible, setItemDescriptionIsVisible] = useState(false);
+    const [showTopicDescription, setShowTopicDescription] = useState(false);
+    const [showGroupingDescription, setShowGroupingDescription] = useState(false);
+    const [showItemDescription, setShowItemDescription] = useState(false);
+
+    // VISUALISATION
     const [orientation, setOrientation] = useState('vertical');
-    const [itemDescriptionFontSize, setItemDescriptionFontSize] = useState('xs')
+    const [style, setStyle] = useState('columns')
+
+    // ******** FONT SIZES ********
+    const [titleSize, setTitleSize] = useState(5);
+    // GROUPINGS
+    const [groupingHeadingSize, setGroupingHeadingSize] = useState(4);
+    const [groupingDescriptionSize, setGroupingDescriptionSize] = useState(2);
     
+    // ITEMS
+    const [itemHeadingSize, setItemHeadingSize] = useState(3)
+    const [itemDescriptionSize, setItemDescriptionFontSize] = useState(1)
+    
+
     // handlers
     const handleStyleChange = () => {
-        let newStyle = getSelectedRadio()
-        setSheetLayout(newStyle)
+        let newStyle = getSelectedRadio('style-radio')
+        setStyle(newStyle)
     }
-
-    const handleTopicDetailChange = () => { setTopicDescriptionIsVisible(!topicDescriptionIsVisible) }
-    const handleGroupingDetailChange = () => { setGroupingDescriptionIsVisible(!groupingDescriptionIsVisible) }
-    const handleItemDetailChange = () => { setItemDescriptionIsVisible(!itemDescriptionIsVisible) }
 
     const handleOrientationChange = () => {
         if (orientation === 'vertical') {
@@ -39,37 +55,64 @@ function App() {
         }
     }
 
-    const handleItemDescriptionFontSizeChange = () => {
-        const select = document.getElementById('item-description-font-size-select')
-        itemDescriptionFontSize = setItemDescriptionFontSize(select.value)
-    }
-
     return (
         <div className="App">
-            <Workbench
-                onUpload={handleUpload}
-                onStyleChange={handleStyleChange}
-                onOrientationChange={handleOrientationChange}
-                onTopicDetailChange={handleTopicDetailChange}
-                onGroupingDetailChange={handleGroupingDetailChange}
-                onItemDetailChange={handleItemDetailChange}
-                onItemDescriptionFontSizeChange={handleItemDescriptionFontSizeChange}
-                onFontSizeSelect={handleItemDescriptionFontSizeChange}
-            />
-            <Viewer
-                groupingStyle={groupingStyle}
-                itemStyle={itemStyle}
-            >
+            <Workbench>
+                <DetailSettingsCard
+                    onTopicDetailChange={() => setShowTopicDescription(!showTopicDescription)}
+                    onGroupingDetailChange={() => setShowGroupingDescription(!showGroupingDescription)}
+                    onItemDetailChange={() => setShowItemDescription(!showItemDescription)}
+                />
+                <Divider mt={'5px'} mb={'5px'}/>
+                <StyleSettingsCard
+                    styleSelected={style}
+                    onStyleChange={handleStyleChange}
+                    onOrientationChange={handleOrientationChange}
+                />
+                <Divider mt={'5px'} mb={'5px'}/>
+
+                <Box>
+                    <Heading as={'h2'} size={'md'}>Font sizes</Heading>
+                    <FontController 
+                        name={'Title'} 
+                        value={titleSize} 
+                        onChange={(e) => setTitleSize(e.target.value)}/>
+                    <FontController 
+                        name={'Grouping Headers'} 
+                        value={groupingHeadingSize} 
+                        onChange={(e) => setGroupingHeadingSize(e.target.value)}/>
+                    <FontController 
+                        name={'Grouping Descriptions'} 
+                        value={groupingDescriptionSize} 
+                        onChange={(e) => setGroupingDescriptionSize(e.target.value)}/>
+                    <FontController 
+                        name={'Item Headings'} 
+                        value={itemHeadingSize} 
+                        onChange={(e) => setItemHeadingSize(e.target.value)}/>
+                    <FontController 
+                        name={'Item Descriptions'} 
+                        value={itemDescriptionSize} 
+                        onChange={(e) => setItemDescriptionFontSize(e.target.value)}/>
+                </Box>
+                {/* <IOCard onUpload={handleUpload} /> */}
+            </Workbench>
+
+            <Viewer>
                 <Cheatsheet
                     content={file}
 
-                    topicDescriptionIsVisible={topicDescriptionIsVisible}
-                    groupingDescriptionIsVisible={groupingDescriptionIsVisible}
-                    itemDescriptionIsVisible={itemDescriptionIsVisible}
+                    showTopicDescription={showTopicDescription}
+                    showGroupingDescription={showGroupingDescription}
+                    showItemDescription={showItemDescription}
+
+                    groupingHeadingSize={groupingHeadingSize}
+                    itemHeadingSize={itemHeadingSize}
+
+                    groupingDescriptionSize={groupingDescriptionSize}
+                    itemDescriptionSize={itemDescriptionSize}
                     
-                    layout={sheetLayout}
                     orientation={orientation}
-                    itemDescriptionFontSize={itemDescriptionFontSize}
+                    style={style}
                 />
             </Viewer>
         </div>

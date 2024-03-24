@@ -1,22 +1,34 @@
+import DomToImage from "dom-to-image"
+
+import { Card, CardHeader, CardBody, Button, Text } from "@chakra-ui/react"
 
 export default function IOCard({onUpload}) {
+    
     const handlePDF = () => {
-        alert('not implemented yet. :(')
+        let node = document.getElementById('cheatsheet')
+        DomToImage.toBlob(node)
+            .then(function(blob) {
+                window.saveAs(blob, 'my-cheatsheet')
+            })
     }
+
     return (
-        <div className="io-card">
-            <button className="button export as-pdf" onClick={handlePDF}>
-                Export as PDF
-            </button>
+        <Card className="io-card">
+            <Button className="button export as-pdf" onClick={handlePDF}>
+                <Text>Export as PDF</Text>
+            </Button>
             
-            <label className="custom-file-upload">
-                <input id="file-upload" type="file" className="hidden"
-                    multiple={false}
-                    accept=".json"
+            <label>
+                Upload
+
+                <input 
+                    type="file" 
+                    id="file-upload" 
+                    // multiple={false}
+                    accept=".json, .docx"
                     onChange={onUpload}
                 />
-                Upload
             </label>
-        </div>
+        </Card>
     )
 }

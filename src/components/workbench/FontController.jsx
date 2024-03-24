@@ -1,31 +1,31 @@
-import { Box, Select } from "@chakra-ui/react";
-const FontController = ({ onSelectSize }) => {
+import { Box, Slider, SliderTrack, SliderFilledTrack, SliderThumb, SliderMark, Heading } from "@chakra-ui/react";
 
-    const itemHeadingSize = 20;
-
-    /**
-     * 6xl, 5xl, 4xl, 3xl, 2xl, xl, lg, md, sm, xs
-     */
+const FontController = ({ name, value, onChange }) => {
 
     return (
-        <Box>
-            <label>
-                Font Size
-                <Select id="item-description-font-size-select" onChange={onSelectSize}>
-                    <option value={'xs'}>Extra Small</option>
-                    <option value={'sm'}>Small</option>
-                    <option value={'md'}>Medium</option>
-                    <option value={'lg'}>Large</option>
-                    <option value={'xl'}>Extra large</option>
-                </Select>
-            </label>
+        <Box pt={6}>
+            <Heading as={'h3'} size={'sm'}>{name}</Heading>
+            
+            <Slider 
+                defaultValue={value} 
+                min={0} 
+                max={4} 
+                step={1} 
+                onChange={e => onChange(e)}
+            >
+                <SliderMark value='0'> xs </SliderMark>
+                <SliderMark value='1'> s </SliderMark>
+                <SliderMark value='2'> m </SliderMark>
+                <SliderMark value='3'> l </SliderMark>
+                <SliderMark value='4'> xl </SliderMark>
+                
+                <SliderTrack>
+                    <SliderFilledTrack />
+                </SliderTrack>
+                
+                <SliderThumb />
+            </Slider>
         </Box>
-        // <div className="slide-container">
-        //     <label>
-        //         <input type="range" min={5} max={40} defaultValue={itemHeadingSize} className="slider" id="item-heading-size-slider"/>
-
-        //     </label>
-        // </div>
     )
 }
 

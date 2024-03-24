@@ -1,12 +1,17 @@
 import OrientationSwitcher from "./OrientationSwitcher";
 import StyleSwitcher from "./StyleSwitcher";
+import { Box, Heading } from "@chakra-ui/react";
 
-export default function StyleSettingsCard({ onStyleChange, onOrientationChange }) {
+export default function StyleSettingsCard({ styleSelected, onStyleChange, onOrientationChange }) {
     return (
-        <div className="settings-card style-settings">
+        <Box>
+            <Heading as={'h2'} size={'md'}>
+                Style
+            </Heading>
+
             <OrientationSwitcher onChange={onOrientationChange} />
 
-            <StyleSwitcher onChange={onStyleChange}/>
-        </div>
+            <StyleSwitcher selected={styleSelected} onChange={onStyleChange}/>
+        </Box>
     )
 }

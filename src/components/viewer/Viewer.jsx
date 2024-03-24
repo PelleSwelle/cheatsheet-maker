@@ -1,7 +1,9 @@
+import { Center } from "@chakra-ui/react"
+
 export default function Viewer({ children }) {
     return (
-        <div className="viewer">
+        <Center className="viewer">
             {children}
-        </div>
+        </Center>
     )
 }

@@ -1,40 +1,16 @@
-import Radio from "../controls/Radio"
+import { Radio, Stack, RadioGroup, Box, Heading } from "@chakra-ui/react"
 
-export default function StyleSwitcher({onChange}) {
+export default function StyleSwitcher({selected, onChange}) {
     return (
-        <div>
-            <h2>Display as...</h2>
-            <Radio
-                name='style-radio'
-                value='columns'
-                onChange={onChange}
-                title={'columns'}
-                isDefault={true}
-            />
-            <Radio
-                name='style-radio'
-                value='cards'
-                onChange={onChange}
-                title='Cards'
-            />
-            <Radio
-                name='style-radio'
-                value='atlas'
-                title='atlas'
-                onChange={onChange}
-            />
-            <Radio
-                name='style-radio'
-                value='list'
-                onChange={onChange}
-                title='List'
-            />
-            <Radio
-                name='style-radio'
-                value='tree'
-                onChange={onChange}
-                title='Tree'
-            />
-        </div>
+        <Box>
+            <Heading as={'h2'} size={'sm'}>Display as...</Heading>
+            
+            <RadioGroup name="style-radio" onChange={onChange} value={"selected"}>
+                <Stack direction={'column'}>
+                    <Radio value={'columns'}>Columns</Radio>
+                    <Radio value={'cards'}>Cards</Radio>
+                </Stack>
+            </RadioGroup>
+        </Box>
     )
 }

@@ -1,31 +1,32 @@
-import Checkbox from "../controls/Checkbox"
+import { Card, CardHeader, CardBody, Box, Stack, Checkbox, CheckboxGroup, Heading } from "@chakra-ui/react"
 
 export default function DetailSettingsCard({ onTopicDetailChange, onGroupingDetailChange, onItemDetailChange }) {
 
     return (
-        <div className="content-settings settings-card">
-            <legend>How much detail at each level?</legend>
-            
-            <Checkbox
-                name='description'
-                label={'Topic Description'}
-                onChange={onTopicDetailChange} 
-                defaultChecked={false}
-            />
-            
-            <Checkbox
-                name='description'
-                label={'Grouping description'}
-                onChange={onGroupingDetailChange}
-                defaultChecked={false}
-            />
+        <Box>
+            <Heading as={'h3'} size={'md'}>How much detail at each level</Heading>
 
-            <Checkbox
-                name='description'
-                label={'Item Description'}
-                onChange={onItemDetailChange}
-                defaultChecked={false}
-            />
-        </div>
+            <CheckboxGroup>
+                <Stack>
+                    <Checkbox
+                        value={'topicDescription'}
+                        onChange={onTopicDetailChange}>
+                        Topic Description
+                    </Checkbox>
+
+                    <Checkbox
+                        value={'groupingDescription'}
+                        onChange={onGroupingDetailChange}>
+                        Grouping Description
+                    </Checkbox>
+
+                    <Checkbox
+                        value={'itemDescription'}
+                        onChange={onItemDetailChange}>
+                        Item Description
+                    </Checkbox>
+                </Stack>
+            </CheckboxGroup>
+        </Box>
     )
 }

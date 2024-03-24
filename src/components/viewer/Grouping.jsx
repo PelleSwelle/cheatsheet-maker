@@ -1,5 +1,6 @@
 import ImageUploadWidget from "./ImageUploadWidget";
 import { useState } from "react";
+import { VStack, Box } from "@chakra-ui/react";
 
 
 export default function Grouping({ 
@@ -15,7 +16,7 @@ export default function Grouping({
     }
 
     return (
-        <div className='grouping'>
+        <VStack className='grouping'>
             <div className="grouping-header">
                 <h2 contentEditable={true} suppressContentEditableWarning={true}>{group.name}</h2>
                 <img className="group-icon" src={icon} />
@@ -33,6 +34,6 @@ export default function Grouping({
                     { children }
                 </ul>
             </div>
-        </div>
+        </VStack>
     )
 }

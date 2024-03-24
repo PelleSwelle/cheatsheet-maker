@@ -15,7 +15,7 @@ body {
     transition: all 1s;
 }
 
-input[type='file'] { display: none; }
+/* input[type='file'] { display: none; } */
 
 
 h1, h2, h3, h4, h5, h6 { 

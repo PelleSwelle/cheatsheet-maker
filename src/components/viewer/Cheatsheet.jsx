@@ -11,11 +11,13 @@ export default function Cheatsheet({
     showGroupingDescription,
     showItemDescription,
 
-    groupingHeadingSize,
-    groupingDescriptionSize,
+    titleFontSize,
+    topicDescriptionFontSize,
+    groupingHeadingFontSize,
+    groupingDescriptionFontSize,
 
-    itemHeadingSize,
-    itemDescriptionSize,
+    itemHeadingFontSize,
+    itemDescriptionFontSize,
 
     orientation,
     style,
@@ -29,10 +31,10 @@ export default function Cheatsheet({
             bgGradient={'linear(to-br, green.200, pink.500)'} 
             p={'20px'} >
             <Box className="sheet-header">
-                <Heading as={'h1'}>{content.name}</Heading>
+                <Heading as={'h1'} size={titleFontSize}>{content.name}</Heading>
 
                 {showTopicDescription
-                    ? (<Text color={'black'}>{content.description}</Text>)
+                    ? (<Text color={'black'} fontSize={topicDescriptionFontSize}>{content.description}</Text>)
                     : null
                 }
             </Box>
@@ -41,24 +43,26 @@ export default function Cheatsheet({
                     ? <CardLayout
                         content={content}
 
-                        groupingHeadingSize={groupingHeadingSize}
-                        groupingDescriptionSize={groupingDescriptionSize}
                         showGroupingDescription={showGroupingDescription}
-                        
-                        itemHeadingSize={itemHeadingSize}
-                        itemDescriptionSize={itemDescriptionSize}
                         showItemDescription={showItemDescription}
+                        
+                        groupingHeadingFontSize={groupingHeadingFontSize}
+                        groupingDescriptionFontSize={groupingDescriptionFontSize}
+
+                        itemHeadingFontSize={itemHeadingFontSize}
+                        itemDescriptionFontSize={itemDescriptionFontSize}
                     />
                     : <ColumnLayout
                         content={content}
 
-                        groupingHeadingSize={groupingHeadingSize}
-                        groupingDescriptionSize={groupingDescriptionSize}
                         showGroupingDescription={showGroupingDescription}
-                        
-                        itemHeadingSize={itemHeadingSize}
-                        itemDescriptionSize={itemDescriptionSize}
                         showItemDescription={showItemDescription}
+                        
+                        groupingHeadingFontSize={groupingHeadingFontSize}
+                        groupingDescriptionFontSize={groupingDescriptionFontSize}
+                        
+                        itemHeadingFontSize={itemHeadingFontSize}
+                        itemDescriptionFontSize={itemDescriptionFontSize}
                     />
                 }
             </Box>

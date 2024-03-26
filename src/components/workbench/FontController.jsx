@@ -1,17 +1,17 @@
 import { Box, Slider, SliderTrack, SliderFilledTrack, SliderThumb, SliderMark, Heading } from "@chakra-ui/react";
 
-const FontController = ({ name, value, onChange }) => {
-
+const FontController = ({ name, value, onChange, id }) => {
     return (
         <Box pt={6}>
             <Heading as={'h3'} size={'sm'}>{name}</Heading>
             
-            <Slider 
+            <Slider
+                id={id}
                 defaultValue={value} 
                 min={0} 
                 max={4} 
                 step={1} 
-                onChange={e => onChange(e)}
+                onChange={(value) => onChange(value)}
             >
                 <SliderMark value='0'> xs </SliderMark>
                 <SliderMark value='1'> s </SliderMark>

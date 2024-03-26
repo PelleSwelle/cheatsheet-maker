@@ -31,14 +31,15 @@ function App() {
     const [style, setStyle] = useState('columns')
 
     // ******** FONT SIZES ********
-    const [titleSize, setTitleSize] = useState(5);
+    const [titleFontSize, setTitleFontSize] = useState(5);
+    const [topicDescriptionFontSize, setTopicDescriptionFontSize] = useState(2)
     // GROUPINGS
-    const [groupingHeadingSize, setGroupingHeadingSize] = useState(4);
-    const [groupingDescriptionSize, setGroupingDescriptionSize] = useState(2);
+    const [groupingHeadingFontSize, setGroupingHeadingFontSize] = useState(3);
+    const [groupingDescriptionFontSize, setGroupingDescriptionFontSize] = useState(1);
     
     // ITEMS
-    const [itemHeadingSize, setItemHeadingSize] = useState(3)
-    const [itemDescriptionSize, setItemDescriptionFontSize] = useState(1)
+    const [itemHeadingFontSize, setItemHeadingFontSize] = useState(2)
+    const [itemDescriptionFontSize, setItemDescriptionFontSize] = useState(0)
     
 
     // handlers
@@ -53,6 +54,16 @@ function App() {
         } else if (orientation === 'horizontal') {
             setOrientation('vertical')
         }
+    }
+
+    const convertToChakraFontSize = (value) => {
+        let fontSize = ''
+        if (value == 0) {fontSize = 'xs'}
+        if (value == 1) {fontSize = 'sm'}
+        if (value == 2) {fontSize = 'md'}
+        if (value == 3) {fontSize = 'lg'}
+        if (value == 4) {fontSize = 'xl'}
+        return fontSize
     }
 
     return (
@@ -75,24 +86,29 @@ function App() {
                     <Heading as={'h2'} size={'md'}>Font sizes</Heading>
                     <FontController 
                         name={'Title'} 
-                        value={titleSize} 
-                        onChange={(e) => setTitleSize(e.target.value)}/>
+                        value={titleFontSize} 
+                        onChange={(value) => setTitleFontSize(convertToChakraFontSize(value))}/>
                     <FontController 
-                        name={'Grouping Headers'} 
-                        value={groupingHeadingSize} 
-                        onChange={(e) => setGroupingHeadingSize(e.target.value)}/>
+                        name={'Description'}
+                        value={topicDescriptionFontSize}
+                        onChange={(value) => setTopicDescriptionFontSize(convertToChakraFontSize(value))}
+                    />
+                    <FontController 
+                        name={'Grouping Headings'} 
+                        value={groupingHeadingFontSize} 
+                        onChange={(value) => setGroupingHeadingFontSize(convertToChakraFontSize(value))}/>
                     <FontController 
                         name={'Grouping Descriptions'} 
-                        value={groupingDescriptionSize} 
-                        onChange={(e) => setGroupingDescriptionSize(e.target.value)}/>
+                        value={groupingDescriptionFontSize} 
+                        onChange={(value) => setGroupingDescriptionFontSize(convertToChakraFontSize(value))}/>
                     <FontController 
                         name={'Item Headings'} 
-                        value={itemHeadingSize} 
-                        onChange={(e) => setItemHeadingSize(e.target.value)}/>
+                        value={itemHeadingFontSize} 
+                        onChange={(value) => setItemHeadingFontSize(convertToChakraFontSize(value))}/>
                     <FontController 
                         name={'Item Descriptions'} 
-                        value={itemDescriptionSize} 
-                        onChange={(e) => setItemDescriptionFontSize(e.target.value)}/>
+                        value={itemDescriptionFontSize} 
+                        onChange={(value) => setItemDescriptionFontSize(convertToChakraFontSize(value))}/>
                 </Box>
                 {/* <IOCard onUpload={handleUpload} /> */}
             </Workbench>
@@ -104,12 +120,14 @@ function App() {
                     showTopicDescription={showTopicDescription}
                     showGroupingDescription={showGroupingDescription}
                     showItemDescription={showItemDescription}
-
-                    groupingHeadingSize={groupingHeadingSize}
-                    itemHeadingSize={itemHeadingSize}
-
-                    groupingDescriptionSize={groupingDescriptionSize}
-                    itemDescriptionSize={itemDescriptionSize}
+                    
+                    titleFontSize={titleFontSize}
+                    topicDescriptionFontSize={topicDescriptionFontSize}
+                    groupingHeadingFontSize={groupingHeadingFontSize}
+                    groupingDescriptionFontSize={groupingDescriptionFontSize}
+                    
+                    itemHeadingFontSize={itemHeadingFontSize}
+                    itemDescriptionFontSize={itemDescriptionFontSize}
                     
                     orientation={orientation}
                     style={style}

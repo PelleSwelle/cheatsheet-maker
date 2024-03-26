@@ -1,6 +1,6 @@
 import { Card, CardHeader, Heading, Text, CardBody } from "@chakra-ui/react"
 
-export default function CardLayout({ content, groupingHeadingSize, groupingDscrSize, groupingDscrIsVisible, itemHeadingSize, itemDscrSize, itemDscrIsVisible }) {
+export default function CardLayout({ content, groupingHeadingFontSize, groupingDescriptionFontSize, groupingDescriptionIsVisible, itemHeadingFontSize, itemDescriptionFontSize, itemDescriptionIsVisible }) {
         
     const sheetContent = <div>content</div>
     // content.elements.map(group =>

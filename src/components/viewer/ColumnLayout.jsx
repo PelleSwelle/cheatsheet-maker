@@ -1,22 +1,22 @@
 import { HStack, VStack, Heading, Text, Card, CardHeader } from "@chakra-ui/react"
 const ColumnLayout = ({
     content,
-    groupingHeadingSize,
-    groupingDescriptionSize,
+    groupingHeadingFontSize,
+    groupingDescriptionFontSize,
     showGroupingDescription,
-    itemHeadingSize,
-    itemDescriptionSize,
+    itemHeadingFontSize,
+    itemDescriptionFontSize,
     showItemDescription }) => {
 
     const sheetContent =
         content.elements.map(group =>
             <VStack key={Math.random()} className="column" w={'100%'} align={'flex-start'}>
-                <Heading as={'h2'} size={groupingHeadingSize}>
+                <Heading as={'h2'} size={groupingHeadingFontSize}>
                     {group.name}
                 </Heading>
                 {
                     showGroupingDescription
-                        ? <Text size={groupingDescriptionSize}>
+                        ? <Text fontSize={groupingDescriptionFontSize}>
                             {group.description}
                         </Text>
                         : null
@@ -24,12 +24,12 @@ const ColumnLayout = ({
                 {group.elements.map(element =>
                     <Card key={Math.random()} w={'100%'} boxShadow={'dark-lg'}>
                         <CardHeader>
-                            <Heading as={'h3'} size={itemHeadingSize}>
+                            <Heading as={'h3'} size={itemHeadingFontSize}>
                                 {element.name}
                             </Heading>
                             {showItemDescription
                                 ? 
-                                <Text size={itemDescriptionSize}>
+                                <Text fontSize={itemDescriptionFontSize}>
                                     {element.description}
                                 </Text>
                                 : null

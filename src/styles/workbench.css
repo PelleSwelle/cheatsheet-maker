@@ -3,11 +3,12 @@
 .workbench {
     grid-column: 'workbench';
     padding: var(--st-padding);
-    background-color: var(--workbench-color);
+    /* background-color: var(--workbench-color); */
     min-height: 100vh;
     
     >* {
         margin: 10px;
+        color: rgb(200, 200, 200);
     }
 }
 

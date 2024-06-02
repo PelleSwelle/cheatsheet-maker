@@ -7,16 +7,16 @@ const handleUpload = () => {
     
     // alert('This is not implemented yet. :/')
 
-    mammoth.convertToHtml(file)
-    .then(function(result) {
-        var html = result.value;
-        var messages = result.messages;
+    // mammoth.convertToHtml(file)
+    // .then(function(result) {
+    //     var html = result.value;
+    //     var messages = result.messages;
 
-        console.log(html)
-    })
-    .then(function(error) {
-        console.log(error)
-    })
+    //     console.log(html)
+    // })
+    // .then(function(error) {
+    //     console.log(error)
+    // })
 
     // mammoth.extractRawText({file, arrayBuffer: data})
     // .then(function(result) {

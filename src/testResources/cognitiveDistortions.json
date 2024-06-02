@@ -1,0 +1,41 @@
+{
+    "name": "Common Cognitive Distortions",
+    "description": "A cognitive distortion is a thought that causes a person to perceive reality inaccurately due to being exaggerated or irrational. Cognitive distortions are involved in the onset or perpetuation of psychopathological states, such as depression and anxiety. According to Aaron Beck's cognitive model, a negative outlook on reality, sometimes called negative schemas (or schemata), is a factor in symptoms of emotional dysfunction and poorer subjective well-being. Specifically, negative thinking patterns reinforce negative emotions and thoughts. During difficult circumstances, these distorted thoughts can contribute to an overall negative outlook on the world and a depressive or anxious mental state. According to hopelessness theory and Beck's theory, the meaning or interpretation that people give to their experience importantly influences whether they will become depressed and whether they will experience severe, repeated, or long-duration episodes of depression. Challenging and changing cognitive distortions is a key element of cognitive behavioral therapy (CBT).",
+    "elements": 
+    [
+        {
+            "name": "Overgeneralizing",
+            "description": "Someone who overgeneralizes makes faulty generalizations from insufficient evidence. Such as seeing a 'single negative event' as a 'never-ending pattern of defeat', and as such drawing a very broad conclusion from a single incident or a single piece of evidence. Even if something bad happens only once, it is expected to happen over and over again. Example 1: A person is asked out on a first date, but not a second one. They are distraught as tells a friend, 'This always happens to me! I'll never find love!' Example 2: A person is lonely and often spends most of their time at home. Friends sometimes ask them to dinner and to meet new people. They feel it is useless to even try. No one could really like them. And anyway, all people are the same: petty and selfish. One suggestion to combat this distortion is to 'examine the evidence' by performing an accurate analysis of one's situation. This aids in avoiding exaggerating one's circumstances."
+        },
+        {
+            "name": "Mind Reading",
+            "description": "Inferring a person's possible or probable (usually negative) thoughts from their behaviour and nonverbal communication; taking precautions against the worst suspected case without asking the person. Example 1: A student assumes that the readers of their paper have already made up their minds concerning its topic, and, therefore, writing the paper is a pointless exercise. Example 2: Kevin assumes that because he sits alone at lunch, everyone else must think he is a loser. (This can encourage self-fulfilling prophecy; Kevin may not initiate social contact because of his fear that those around him already perceive him negatively)."
+        },
+        {
+            "name": "Personalization",
+            "description": "Personalization is assigning personal blame disproportionate to the level of control a person realistically has in a given situation. Example 1: A foster child assumes that they have not been adopted because they are not 'loveable enough'. Example 2: A child has bad grades. Their mother believes it is because they are not a good enough parent. Blaming is the opposite of personalization. In the blaming distortion, the disproportionate level of blame is placed upon other people, rather than oneself.[15] In this way, the person avoids taking personal responsibility, making way for a 'victim mentality'. Example: Placing blame for marital problems entirely on one's spouse."
+        },
+        {
+            "name": "Disqualifying",
+            "description": "Disqualifying the positive refers to rejecting positive experiences by insisting they 'don't count' for some reason or other. Negative belief is maintained despite contradiction by everyday experiences. Disqualifying the positive may be the most common fallacy in the cognitive distortion range; it is often analyzed with 'always being right', a type of distortion where a person is in an all-or-nothing self-judgment. People in this situation show signs of depression. Examples include: 'I will never be as good as Jane' 'Anyone could have done as well' 'They are just congratulating me to be nice'"
+        },
+
+        {
+            "name": "Magnification",
+            "description": "Giving proportionally greater weight to a perceived failure, weakness or threat, or lesser weight to a perceived success, strength or opportunity, so that the weight differs from that assigned by others, such as 'making a mountain out of a molehill'. In depressed clients, often the positive characteristics of other people are exaggerated, and their negative characteristics are understated. Catastrophizing is a form of magnification where one gives greater weight to the worst possible outcome, however unlikely, or experiences a situation as unbearable or impossible when it is just uncomfortable. "
+        },
+        {
+            "name": "All-or-nothing",
+            "description": "Also referred to as 'splitting', 'black-and-white thinking', and 'polarized thinking.' Someone with the all-or-nothing thinking distortion looks at life in black and white categories.[15] Either they are a success or a failure; either they are good or bad; there is no in-between. According to one article, 'Because there is always someone who is willing to criticize, this tends to collapse into a tendency for polarized people to view themselves as a total failure. Polarized thinkers have difficulty with the notion of being 'good enough' or a partial success.' Example (from The Feeling Good Handbook): A woman eats a spoonful of ice cream. She thinks she is a complete failure for breaking her diet. She becomes so depressed that she ends up eating the whole quart of ice cream.[15]"
+        },
+        {
+            "name": "Emotional reasoning",
+            "description": "In the emotional reasoning distortion, it is assumed that feelings expose the true nature of things and experience reality as a reflection of emotionally linked thoughts; something is believed true solely based on a feeling. Examples: 'I feel stupid, therefore I must be stupid'. Feeling fear of flying in planes, and then concluding that planes must be a dangerous way to travel.[15] Feeling overwhelmed by the prospect of cleaning one's house, therefore concluding that it's hopeless to even start cleaning."
+        },
+        {
+            "name": "Labeling",
+            "description": "Labelling occurs when someone overgeneralizes the characteristics of other people. Someone might use an unfavourable term to describe a complex person or event, such as assuming that a friend is upset with them due to a late reply to a text message, even though there could be various other reasons for the delay. It is a more extreme form of jumping-to-conclusions cognitive distortion where one presumes to know the thoughts, feelings, or intentions of others without any factual basis."
+        }
+
+    ]
+}

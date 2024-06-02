@@ -5,6 +5,7 @@ import StyleSettingsCard from './components/workbench/StyleSettingsCard';
 
 
 // test files
+import cognitiveDistortions from './testResources/cognitiveDistortions.json'
 import ReactHooks from './testResources/ReactHooks.json'
 import JapaneseTechniques from './testResources/JapaneseTechniques.json'
 import designPatterns from './testResources/DesignPatterns.json'
@@ -25,7 +26,7 @@ Coloris.init()
 Coloris({el: '.coloris'})
 
 function App() {
-    const [file, setFile] = useState(designPatterns)
+    const [file, setFile] = useState(cognitiveDistortions)
 
     const [showTopicDescription, setShowTopicDescription] = useState(false);
     const [showGroupingDescription, setShowGroupingDescription] = useState(false);

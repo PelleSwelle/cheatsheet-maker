@@ -114,7 +114,7 @@ function App() {
                     onOrientationChange={handleOrientationChange}
                 />
                 <Divider mt={'5px'} mb={'5px'}/>
-                <Box>
+                <Box id='color-selectors'>
                     <Heading as={'h2'} size={'md'}>Colors</Heading>
                     <input type="text" id='color1' className='coloris color-selector' onInput={() => handleColorChange()}/>
                     <input type="text" id='color2' className='coloris color-selector' onInput={() => handleColorChange()}/>

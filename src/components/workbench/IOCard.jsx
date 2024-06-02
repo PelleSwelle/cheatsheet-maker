@@ -1,6 +1,6 @@
 import DomToImage from "dom-to-image"
 
-import { Card, CardHeader, CardBody, Button, Text } from "@chakra-ui/react"
+import { Flex, Box, Button, Text } from "@chakra-ui/react"
 
 export default function IOCard({onUpload}) {
     
@@ -13,22 +13,21 @@ export default function IOCard({onUpload}) {
     }
 
     return (
-        <Card className="io-card">
+        <Box className="io-card">
             <Button className="button export as-pdf" onClick={handlePDF}>
                 <Text>Export as PDF</Text>
             </Button>
             
-            <label>
-                Upload
+            <Flex id="file-input-container">
+                <label for='file-upload' id="upload-button-label">Upload</label>
 
-                <input 
-                    type="file" 
-                    id="file-upload" 
-                    // multiple={false}
-                    accept=".json, .docx"
-                    onChange={onUpload}
-                />
-            </label>
-        </Card>
+                    <input type="file" 
+                        id="file-upload" 
+                        // multiple={false}
+                        accept=".json, .docx, .html"
+                        onChange={onUpload}
+                    />
+            </Flex>
+        </Box>
     )
 }

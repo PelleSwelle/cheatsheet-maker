@@ -14,10 +14,15 @@ import { FontController } from './components/workbench/FontController';
 import Viewer from './components/viewer/Viewer'
 import Cheatsheet from './components/viewer/Cheatsheet'
 import { getSelectedRadio } from './utils/GetSelectedRadio'
-import handleUpload from './utils/HandleUpload';
+// import handleUpload from './utils/HandleUpload';
+import mammoth from 'mammoth';
 import { Box, Divider, Heading } from '@chakra-ui/react';
+import {convertToChakraFontSize} from './utils/ConvertToChakraFontSize'
+import '@melloware/coloris/dist/coloris.css'
+import Coloris from '@melloware/coloris';
 
-
+Coloris.init()
+Coloris({el: '.coloris'})
 
 function App() {
     const [file, setFile] = useState(designPatterns)
@@ -41,8 +46,38 @@ function App() {
     const [itemHeadingFontSize, setItemHeadingFontSize] = useState(2)
     const [itemDescriptionFontSize, setItemDescriptionFontSize] = useState(0)
     
+    
+    const [background, setBackground] = useState(`linear(to-br, green.200, pink.500)`)
+
 
     // handlers
+    const handleUpload = async () => {
+        await fetch(document.getElementById('file-upload').files[0])
+        .then(response => response.text())
+        .then(text => console.log(text))
+        
+        let fileExtracted = file.text();
+        console.log(fileExtracted)
+        // .then(response => response.text())
+        // .then(text => document.getElementById('cheatsheet').innerHTML = text)
+
+        console.log(`uploaded ${file.name}`)
+        
+        // alert('This is not implemented yet. :/')
+    
+        // mammoth.extractRawText(file)
+        // .then(function(result){
+        //     console.log(result)
+        //     // var text = result.value; // The raw text
+        //     // console.log(text)
+        //     // var messages = result.messages;
+        //     // setFile(text)
+        // })
+        // .catch(function(error) {
+        //     console.error(error);
+        // });
+    }
+
     const handleStyleChange = () => {
         let newStyle = getSelectedRadio('style-radio')
         setStyle(newStyle)
@@ -56,14 +91,12 @@ function App() {
         }
     }
 
-    const convertToChakraFontSize = (value) => {
-        let fontSize = ''
-        if (value == 0) {fontSize = 'xs'}
-        if (value == 1) {fontSize = 'sm'}
-        if (value == 2) {fontSize = 'md'}
-        if (value == 3) {fontSize = 'lg'}
-        if (value == 4) {fontSize = 'xl'}
-        return fontSize
+    const handleColorChange = () => {
+        const color1 = document.getElementById('color1').value
+        const color2 = document.getElementById('color2').value
+
+        console.log(`Colors: ${color1}, ${color2}`)
+        setBackground(`linear(to-br, ${color1}, ${color2})`)
     }
 
     return (
@@ -81,7 +114,11 @@ function App() {
                     onOrientationChange={handleOrientationChange}
                 />
                 <Divider mt={'5px'} mb={'5px'}/>
-
+                <Box>
+                    <Heading as={'h2'} size={'md'}>Colors</Heading>
+                    <input type="text" id='color1' className='coloris color-selector' onInput={() => handleColorChange()}/>
+                    <input type="text" id='color2' className='coloris color-selector' onInput={() => handleColorChange()}/>
+                </Box>
                 <Box>
                     <Heading as={'h2'} size={'md'}>Font sizes</Heading>
                     <FontController 
@@ -91,8 +128,9 @@ function App() {
                     <FontController 
                         name={'Description'}
                         value={topicDescriptionFontSize}
+                        IsTogglable={true}
                         onChange={(value) => setTopicDescriptionFontSize(convertToChakraFontSize(value))}
-                    />
+                        />
                     <FontController 
                         name={'Grouping Headings'} 
                         value={groupingHeadingFontSize} 
@@ -100,6 +138,7 @@ function App() {
                     <FontController 
                         name={'Grouping Descriptions'} 
                         value={groupingDescriptionFontSize} 
+                        IsTogglable={true}
                         onChange={(value) => setGroupingDescriptionFontSize(convertToChakraFontSize(value))}/>
                     <FontController 
                         name={'Item Headings'} 
@@ -108,9 +147,13 @@ function App() {
                     <FontController 
                         name={'Item Descriptions'} 
                         value={itemDescriptionFontSize} 
+                        IsTogglable={true}
                         onChange={(value) => setItemDescriptionFontSize(convertToChakraFontSize(value))}/>
                 </Box>
-                {/* <IOCard onUpload={handleUpload} /> */}
+
+                
+                <IOCard onUpload={handleUpload} />
+                <Box></Box>
             </Workbench>
 
             <Viewer>
@@ -120,7 +163,6 @@ function App() {
                     showTopicDescription={showTopicDescription}
                     showGroupingDescription={showGroupingDescription}
                     showItemDescription={showItemDescription}
-                    
                     titleFontSize={titleFontSize}
                     topicDescriptionFontSize={topicDescriptionFontSize}
                     groupingHeadingFontSize={groupingHeadingFontSize}
@@ -131,6 +173,7 @@ function App() {
                     
                     orientation={orientation}
                     style={style}
+                    background={background}
                 />
             </Viewer>
         </div>

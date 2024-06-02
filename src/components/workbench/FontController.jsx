@@ -1,9 +1,12 @@
-import { Box, Slider, SliderTrack, SliderFilledTrack, SliderThumb, SliderMark, Heading } from "@chakra-ui/react";
+import { Text, Box, Slider, SliderTrack, SliderFilledTrack, SliderThumb, SliderMark, Heading, Checkbox } from "@chakra-ui/react";
 
-const FontController = ({ name, value, onChange, id }) => {
+const FontController = ({ name, value, onChange, id, IsTogglable }) => {
     return (
         <Box pt={6}>
-            <Heading as={'h3'} size={'sm'}>{name}</Heading>
+            <Text as={'h3'} size={'sm'}>
+                {name}
+                {IsTogglable ? <Checkbox marginLeft={5}/> : null}  
+            </Text>
             
             <Slider
                 id={id}

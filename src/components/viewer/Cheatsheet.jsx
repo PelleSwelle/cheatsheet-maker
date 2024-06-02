@@ -21,14 +21,15 @@ export default function Cheatsheet({
 
     orientation,
     style,
+    background
 }) {
 
     const className = 'cheatsheet ' + orientation;
 
     return (
         <Box id="cheatsheet" 
-            className={className} 
-            bgGradient={'linear(to-br, green.200, pink.500)'} 
+            className={className}
+            bgGradient={background} 
             p={'20px'} >
             <Box className="sheet-header">
                 <Heading as={'h1'} size={titleFontSize}>{content.name}</Heading>

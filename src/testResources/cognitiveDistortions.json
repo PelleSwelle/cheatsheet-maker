@@ -1,7 +1,7 @@
 {
     "name": "Common Cognitive Distortions",
     "description": "A cognitive distortion is a thought that causes a person to perceive reality inaccurately due to being exaggerated or irrational. Cognitive distortions are involved in the onset or perpetuation of psychopathological states, such as depression and anxiety. According to Aaron Beck's cognitive model, a negative outlook on reality, sometimes called negative schemas (or schemata), is a factor in symptoms of emotional dysfunction and poorer subjective well-being. Specifically, negative thinking patterns reinforce negative emotions and thoughts. During difficult circumstances, these distorted thoughts can contribute to an overall negative outlook on the world and a depressive or anxious mental state. According to hopelessness theory and Beck's theory, the meaning or interpretation that people give to their experience importantly influences whether they will become depressed and whether they will experience severe, repeated, or long-duration episodes of depression. Challenging and changing cognitive distortions is a key element of cognitive behavioral therapy (CBT).",
-    "elements": 
+    "children": 
     [
         {
             "name": "Overgeneralizing",
@@ -36,6 +36,5 @@
             "name": "Labeling",
             "description": "Labelling occurs when someone overgeneralizes the characteristics of other people. Someone might use an unfavourable term to describe a complex person or event, such as assuming that a friend is upset with them due to a late reply to a text message, even though there could be various other reasons for the delay. It is a more extreme form of jumping-to-conclusions cognitive distortion where one presumes to know the thoughts, feelings, or intentions of others without any factual basis."
         }
-
     ]
 }

@@ -1,9 +1,11 @@
 import Grouping from "./Grouping"
 import Item from "./Item"
-import { generateId } from '../../utils/IdGenerator';
+// import { generateId } from '../../utils/IdGenerator';
 import { HStack, Stack, Box, Wrap, WrapItem, Center, Text, Heading, Card, CardHeader, CardBody, CardFooter, VStack, Flex, Divider } from "@chakra-ui/react";
 import CardLayout from "./CardLayout";
 import ColumnLayout from "./ColumnLayout";
+import getDepth from "../../utils/getDepth";
+
 
 export default function Cheatsheet({
     content,
@@ -23,19 +25,19 @@ export default function Cheatsheet({
     style,
     background
 }) {
-
+    
     const className = 'cheatsheet ' + orientation;
-
+    
     return (
         <Box id="cheatsheet" 
             className={className}
             bgGradient={background} 
             p={'20px'} >
             <Box className="sheet-header">
-                <Heading as={'h1'} size={titleFontSize}>{content.name}</Heading>
+                <Heading as={'h1'} size={titleFontSize} contentEditable>{content.name}</Heading>
 
                 {showTopicDescription
-                    ? (<Text color={'black'} fontSize={topicDescriptionFontSize}>{content.description}</Text>)
+                    ? (<Text color={'black'} fontSize={topicDescriptionFontSize} contentEditable>{content.description}</Text>)
                     : null
                 }
             </Box>
@@ -55,7 +57,7 @@ export default function Cheatsheet({
                     />
                     : <ColumnLayout
                         content={content}
-
+                        depth={getDepth(content)}
                         showGroupingDescription={showGroupingDescription}
                         showItemDescription={showItemDescription}
                         

@@ -39,6 +39,7 @@ function App() {
     // ******** FONT SIZES ********
     const [titleFontSize, setTitleFontSize] = useState(5);
     const [topicDescriptionFontSize, setTopicDescriptionFontSize] = useState(2)
+    
     // GROUPINGS
     const [groupingHeadingFontSize, setGroupingHeadingFontSize] = useState(3);
     const [groupingDescriptionFontSize, setGroupingDescriptionFontSize] = useState(1);

@@ -1,0 +1,64 @@
+{
+  "hash": "f0f34ca7",
+  "configHash": "d5f8cf23",
+  "lockfileHash": "6d4179cb",
+  "browserHash": "4b3de9db",
+  "optimized": {
+    "@emotion/is-prop-valid": {
+      "src": "../../node_modules/@emotion/is-prop-valid/dist/emotion-is-prop-valid.esm.js",
+      "file": "@emotion_is-prop-valid.js",
+      "fileHash": "380a1cc3",
+      "needsInterop": false
+    },
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "d7bce088",
+      "needsInterop": true
+    },
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "8adaf61d",
+      "needsInterop": true
+    },
+    "@chakra-ui/react": {
+      "src": "../../node_modules/@chakra-ui/react/dist/index.mjs",
+      "file": "@chakra-ui_react.js",
+      "fileHash": "89fd386b",
+      "needsInterop": false
+    },
+    "mammoth": {
+      "src": "../../node_modules/mammoth/lib/index.js",
+      "file": "mammoth.js",
+      "fileHash": "f34f8b5f",
+      "needsInterop": true
+    },
+    "@melloware/coloris": {
+      "src": "../../node_modules/@melloware/coloris/dist/esm/coloris.js",
+      "file": "@melloware_coloris.js",
+      "fileHash": "43d5fd9a",
+      "needsInterop": false
+    },
+    "dom-to-image": {
+      "src": "../../node_modules/dom-to-image/src/dom-to-image.js",
+      "file": "dom-to-image.js",
+      "fileHash": "8f47dcc5",
+      "needsInterop": true
+    }
+  },
+  "chunks": {
+    "chunk-NC4WGRV6": {
+      "file": "chunk-NC4WGRV6.js"
+    },
+    "chunk-7IKHB6XJ": {
+      "file": "chunk-7IKHB6XJ.js"
+    },
+    "chunk-4J63V2HR": {
+      "file": "chunk-4J63V2HR.js"
+    },
+    "chunk-GFT2G5UO": {
+      "file": "chunk-GFT2G5UO.js"
+    }
+  }
+}

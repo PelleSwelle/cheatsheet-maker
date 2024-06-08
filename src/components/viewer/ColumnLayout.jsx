@@ -17,12 +17,12 @@ const ColumnLayout = ({
         sheetContent = content.children.map(child =>
             <Card key={Math.random()} w={'100%'} boxShadow={'dark-lg'}>
                 <CardHeader>
-                    <Heading as={'h3'} size={itemHeadingFontSize} contentEditable>
+                    <Heading as={'h3'} size={itemHeadingFontSize}>
                         {child.name}
                     </Heading>
                     {showItemDescription
                         ?
-                        <Text fontSize={itemDescriptionFontSize} contentEditable>
+                        <Text fontSize={itemDescriptionFontSize}>
                             {child.description}
                         </Text>
                         : null
@@ -34,13 +34,13 @@ const ColumnLayout = ({
     else if (depth == 3) {
         sheetContent = content.children.map(group =>
             <VStack key={Math.random()} className="column" w={'100%'} align={'flex-start'}>
-                <Heading as={'h2'} size={groupingHeadingFontSize} contentEditable>
+                <Heading as={'h2'} size={groupingHeadingFontSize}>
                     {group.name}
                 </Heading> 
                 {
                     showGroupingDescription
                         ?
-                        <Text fontSize={groupingDescriptionFontSize} contentEditable>
+                        <Text fontSize={groupingDescriptionFontSize}>
                             {group.description}
                         </Text>
                         :
@@ -49,12 +49,12 @@ const ColumnLayout = ({
                     group.children.map(child =>
                         <Card key={Math.random()} w={'100%'} boxShadow={'dark-lg'}>
                             <CardHeader>
-                                <Heading as={'h3'} size={itemHeadingFontSize} contentEditable>
+                                <Heading as={'h3'} size={itemHeadingFontSize}>
                                     {child.name}
                                 </Heading>
                                 {showItemDescription
                                     ?
-                                    <Text fontSize={itemDescriptionFontSize} contentEditable>
+                                    <Text fontSize={itemDescriptionFontSize}>
                                         {child.description}
                                     </Text>
                                     : null

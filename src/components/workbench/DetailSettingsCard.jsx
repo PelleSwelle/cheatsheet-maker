@@ -9,19 +9,19 @@ export default function DetailSettingsCard({ onTopicDetailChange, onGroupingDeta
             <CheckboxGroup>
                 <Stack>
                     <Checkbox
-                        value={'topicDescription'}
+                        value={'topic'}
                         onChange={onTopicDetailChange}>
                         Topic Description
                     </Checkbox>
 
                     <Checkbox
-                        value={'groupingDescription'}
+                        value={'grouping'}
                         onChange={onGroupingDetailChange}>
                         Grouping Description
                     </Checkbox>
 
                     <Checkbox
-                        value={'itemDescription'}
+                        value={'item'}
                         onChange={onItemDetailChange}>
                         Item Description
                     </Checkbox>

@@ -27,27 +27,26 @@ Coloris({el: '.coloris'})
 
 function App() {
     const [file, setFile] = useState(cognitiveDistortions)
-
-    const [showTopicDescription, setShowTopicDescription] = useState(false);
-    const [showGroupingDescription, setShowGroupingDescription] = useState(false);
-    const [showItemDescription, setShowItemDescription] = useState(false);
+    
+    const [descriptionIsVisible, setDescriptionIsVisible] = useState({
+        topic: true,
+        grouping: true,
+        item: true
+    })
 
     // VISUALISATION
     const [orientation, setOrientation] = useState('vertical');
     const [style, setStyle] = useState('columns')
 
     // ******** FONT SIZES ********
-    const [titleFontSize, setTitleFontSize] = useState(5);
-    const [topicDescriptionFontSize, setTopicDescriptionFontSize] = useState(2)
-    
-    // GROUPINGS
-    const [groupingHeadingFontSize, setGroupingHeadingFontSize] = useState(3);
-    const [groupingDescriptionFontSize, setGroupingDescriptionFontSize] = useState(1);
-    
-    // ITEMS
-    const [itemHeadingFontSize, setItemHeadingFontSize] = useState(2)
-    const [itemDescriptionFontSize, setItemDescriptionFontSize] = useState(0)
-    
+    const [fontSizes, setFontSize] = useState({
+        TopicHeading: 4,
+        topicDescription: 2,
+        groupingHeading: 2,
+        groupingDescription: 2,
+        itemHeading: 1,
+        itemDescription: 1
+    })
     
     const [background, setBackground] = useState(`linear(to-br, green.200, pink.500)`)
 
@@ -55,29 +54,9 @@ function App() {
     // handlers
     const handleUpload = async () => {
         await fetch(document.getElementById('file-upload').files[0])
-        .then(response => response.text())
-        .then(text => console.log(text))
-        
-        let fileExtracted = file.text();
-        console.log(fileExtracted)
-        // .then(response => response.text())
-        // .then(text => document.getElementById('cheatsheet').innerHTML = text)
+        .then(res => setFile(res))
 
         console.log(`uploaded ${file.name}`)
-        
-        // alert('This is not implemented yet. :/')
-    
-        // mammoth.extractRawText(file)
-        // .then(function(result){
-        //     console.log(result)
-        //     // var text = result.value; // The raw text
-        //     // console.log(text)
-        //     // var messages = result.messages;
-        //     // setFile(text)
-        // })
-        // .catch(function(error) {
-        //     console.error(error);
-        // });
     }
 
     const handleStyleChange = () => {
@@ -101,13 +80,26 @@ function App() {
         setBackground(`linear(to-br, ${color1}, ${color2})`)
     }
 
+    const handleDetailChange = (level) => {
+        // Gross, but I couldn't figure out how to pass anything to get the function to take the argument
+        if (level == 'topic') {
+            setDescriptionIsVisible({...descriptionIsVisible, topic: !descriptionIsVisible.topic})
+        }
+        if (level == 'grouping') {
+            setDescriptionIsVisible({...descriptionIsVisible, grouping: !descriptionIsVisible.grouping})
+        }
+        if (level == 'item') {
+            setDescriptionIsVisible({...descriptionIsVisible, item: !descriptionIsVisible.item})
+        }
+    }
+
     return (
         <div className="App">
             <Workbench>
                 <DetailSettingsCard
-                    onTopicDetailChange={() => setShowTopicDescription(!showTopicDescription)}
-                    onGroupingDetailChange={() => setShowGroupingDescription(!showGroupingDescription)}
-                    onItemDetailChange={() => setShowItemDescription(!showItemDescription)}
+                    onTopicDetailChange={() => handleDetailChange('topic')}
+                    onGroupingDetailChange={() => handleDetailChange('grouping')}
+                    onItemDetailChange={() => handleDetailChange('item')}
                 />
                 <Divider mt={'5px'} mb={'5px'}/>
                 <StyleSettingsCard
@@ -125,32 +117,32 @@ function App() {
                     <Heading as={'h2'} size={'md'}>Font sizes</Heading>
                     <FontController 
                         name={'Title'} 
-                        value={titleFontSize} 
-                        onChange={(value) => setTitleFontSize(convertToChakraFontSize(value))}/>
+                        value={fontSizes.TopicHeading} 
+                        onChange={(value) => setFontSize({...fontSizes, TopicHeading: convertToChakraFontSize(value)})}/>
                     <FontController 
                         name={'Description'}
-                        value={topicDescriptionFontSize}
+                        value={fontSizes.topicDescription}
                         IsTogglable={true}
-                        onChange={(value) => setTopicDescriptionFontSize(convertToChakraFontSize(value))}
+                        onChange={(value) => setFontSize({...fontSizes, topicDescription: convertToChakraFontSize(value)})}
                         />
                     <FontController 
                         name={'Grouping Headings'} 
-                        value={groupingHeadingFontSize} 
-                        onChange={(value) => setGroupingHeadingFontSize(convertToChakraFontSize(value))}/>
+                        value={fontSizes.groupingHeading} 
+                        onChange={(value) => setFontSize({...fontSizes, groupingHeading: convertToChakraFontSize(value)})}/>
                     <FontController 
                         name={'Grouping Descriptions'} 
-                        value={groupingDescriptionFontSize} 
+                        value={fontSizes.groupingDescription} 
                         IsTogglable={true}
-                        onChange={(value) => setGroupingDescriptionFontSize(convertToChakraFontSize(value))}/>
+                        onChange={(value) => setFontSize({...fontSizes, groupingDescription: convertToChakraFontSize(value)})}/>
                     <FontController 
                         name={'Item Headings'} 
-                        value={itemHeadingFontSize} 
-                        onChange={(value) => setItemHeadingFontSize(convertToChakraFontSize(value))}/>
+                        value={fontSizes.itemHeading} 
+                        onChange={(value) => setFontSize({...fontSizes, itemHeading: convertToChakraFontSize(value)})}/>
                     <FontController 
                         name={'Item Descriptions'} 
-                        value={itemDescriptionFontSize} 
+                        value={fontSizes.itemDescription} 
                         IsTogglable={true}
-                        onChange={(value) => setItemDescriptionFontSize(convertToChakraFontSize(value))}/>
+                        onChange={(value) => setFontSize({...fontSizes, itemDescription: convertToChakraFontSize(value)})}/>
                 </Box>
 
                 
@@ -162,16 +154,18 @@ function App() {
                 <Cheatsheet
                     content={file}
 
-                    showTopicDescription={showTopicDescription}
-                    showGroupingDescription={showGroupingDescription}
-                    showItemDescription={showItemDescription}
-                    titleFontSize={titleFontSize}
-                    topicDescriptionFontSize={topicDescriptionFontSize}
-                    groupingHeadingFontSize={groupingHeadingFontSize}
-                    groupingDescriptionFontSize={groupingDescriptionFontSize}
+                    // descriptionsVisible={descriptionIsVisible}
+                    topicDescriptionIsVisible={descriptionIsVisible.topic}
+                    groupingDescriptionIsVisible={descriptionIsVisible.grouping}
+                    itemDescriptionIsVisible={descriptionIsVisible.item}
                     
-                    itemHeadingFontSize={itemHeadingFontSize}
-                    itemDescriptionFontSize={itemDescriptionFontSize}
+                    titleFontSize={fontSizes.TopicHeading}
+                    topicDescriptionFontSize={fontSizes.topicDescription}
+                    groupingHeadingFontSize={fontSizes.groupingHeading}
+                    groupingDescriptionFontSize={fontSizes.groupingDescription}
+                    
+                    itemHeadingFontSize={fontSizes.itemHeading}
+                    itemDescriptionFontSize={fontSizes.itemDescription}
                     
                     orientation={orientation}
                     style={style}

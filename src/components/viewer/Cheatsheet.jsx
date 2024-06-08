@@ -9,9 +9,9 @@ import getDepth from "../../utils/getDepth";
 
 export default function Cheatsheet({
     content,
-    showTopicDescription,
-    showGroupingDescription,
-    showItemDescription,
+    topicDescriptionIsVisible,
+    groupingDescriptionIsVisible,
+    itemDescriptionIsVisible,
 
     titleFontSize,
     topicDescriptionFontSize,
@@ -34,10 +34,10 @@ export default function Cheatsheet({
             bgGradient={background} 
             p={'20px'} >
             <Box className="sheet-header">
-                <Heading as={'h1'} size={titleFontSize} contentEditable>{content.name}</Heading>
+                <Heading as={'h1'} size={titleFontSize} >{content.name}</Heading>
 
-                {showTopicDescription
-                    ? (<Text color={'black'} fontSize={topicDescriptionFontSize} contentEditable>{content.description}</Text>)
+                {topicDescriptionIsVisible
+                    ? (<Text color={'black'} fontSize={topicDescriptionFontSize} >{content.description}</Text>)
                     : null
                 }
             </Box>
@@ -46,8 +46,8 @@ export default function Cheatsheet({
                     ? <CardLayout
                         content={content}
 
-                        showGroupingDescription={showGroupingDescription}
-                        showItemDescription={showItemDescription}
+                        showGroupingDescription={groupingDescriptionIsVisible}
+                        showItemDescription={itemDescriptionIsVisible}
                         
                         groupingHeadingFontSize={groupingHeadingFontSize}
                         groupingDescriptionFontSize={groupingDescriptionFontSize}
@@ -58,8 +58,8 @@ export default function Cheatsheet({
                     : <ColumnLayout
                         content={content}
                         depth={getDepth(content)}
-                        showGroupingDescription={showGroupingDescription}
-                        showItemDescription={showItemDescription}
+                        showGroupingDescription={groupingDescriptionIsVisible}
+                        showItemDescription={itemDescriptionIsVisible}
                         
                         groupingHeadingFontSize={groupingHeadingFontSize}
                         groupingDescriptionFontSize={groupingDescriptionFontSize}

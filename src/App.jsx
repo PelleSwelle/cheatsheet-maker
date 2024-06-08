@@ -21,6 +21,7 @@ import { Box, Divider, Heading } from '@chakra-ui/react';
 import {convertToChakraFontSize} from './utils/ConvertToChakraFontSize'
 import '@melloware/coloris/dist/coloris.css'
 import Coloris from '@melloware/coloris';
+import getDepth from './utils/getDepth';
 
 Coloris.init()
 Coloris({el: '.coloris'})
@@ -33,6 +34,7 @@ function App() {
         grouping: true,
         item: true
     })
+    const depth = getDepth(file)
 
     // VISUALISATION
     const [orientation, setOrientation] = useState('vertical');
@@ -125,15 +127,22 @@ function App() {
                         IsTogglable={true}
                         onChange={(value) => setFontSize({...fontSizes, topicDescription: convertToChakraFontSize(value)})}
                         />
-                    <FontController 
-                        name={'Grouping Headings'} 
-                        value={fontSizes.groupingHeading} 
-                        onChange={(value) => setFontSize({...fontSizes, groupingHeading: convertToChakraFontSize(value)})}/>
-                    <FontController 
-                        name={'Grouping Descriptions'} 
-                        value={fontSizes.groupingDescription} 
-                        IsTogglable={true}
-                        onChange={(value) => setFontSize({...fontSizes, groupingDescription: convertToChakraFontSize(value)})}/>
+                    {
+                        depth > 2
+                        ?
+                        <>
+                        <FontController 
+                            name={'Grouping Headings'} 
+                            value={fontSizes.groupingHeading} 
+                            onChange={(value) => setFontSize({...fontSizes, groupingHeading: convertToChakraFontSize(value)})}/>
+                        <FontController 
+                            name={'Grouping Descriptions'} 
+                            value={fontSizes.groupingDescription} 
+                            IsTogglable={true}
+                            onChange={(value) => setFontSize({...fontSizes, groupingDescription: convertToChakraFontSize(value)})}/>
+                        </>
+                        : null
+                        }
                     <FontController 
                         name={'Item Headings'} 
                         value={fontSizes.itemHeading} 

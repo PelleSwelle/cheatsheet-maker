@@ -1,43 +1,53 @@
-import { Card, CardHeader, Heading, Text, CardBody } from "@chakra-ui/react"
+import {
+  Box,
+  HStack,
+  VStack,
+  Card,
+  CardHeader,
+  Heading,
+  Text,
+  CardBody,
+  Wrap,
+} from "@chakra-ui/react";
 
-export default function CardLayout({ content, groupingHeadingFontSize, groupingDescriptionFontSize, groupingDescriptionIsVisible, itemHeadingFontSize, itemDescriptionFontSize, itemDescriptionIsVisible }) {
-        
-    const sheetContent = <div>content</div>
-    // content.elements.map(group =>
-    //     <Card>
-    //         <CardHeader>
-    //             <Heading as={'h2'} size={groupingHeadingSize}>
-    //                 {group.name}
-    //             </Heading>
-    //             {
-    //                 groupingDscrIsVisible
-    //                     ? <Text size={groupingDscrSize}>{group.description}</Text>
-    //                     : null
-    //             }
-    //         </CardHeader>
+export default function CardLayout({
+  content,
 
-    //         <CardBody>
-    //             <HStack>
-    //                 {group.elements.map(element =>
-    //                     <Card key={Math.random()}>
-    //                         <CardHeader>
-    //                             <Heading as={'h3'} size={itemHeadingSize}>
-    //                                 {element.name}
-    //                             </Heading>
-    //                         </CardHeader>
-    //                         {
-    //                             itemDscrIsVisible
-    //                                 ? <CardBody>
-    //                                     <Text size={itemDscrSize}>{element.description}</Text>
-    //                                 </CardBody>
-    //                                 : null
-    //                         }
-    //                     </Card>
-    //                 )}
-    //             </HStack>
-    //         </CardBody>
-    //     </Card>
-    // )
+  groupingHeadingFontSize,
+  groupingDescriptionFontSize,
+  itemHeadingFontSize,
+  itemDescriptionFontSize,
 
-    return (<Card>{sheetContent}</Card>)
+  groupingDescriptionIsVisible,
+  itemDescriptionIsVisible,
+}) {
+  const sheetContent = content.children.map((group) => (
+    <HStack>
+      <Heading as={"h2"} size={groupingHeadingFontSize}>
+        {group.name}
+      </Heading>
+      {groupingDescriptionIsVisible ? (
+        <Text size={groupingDescriptionFontSize}>{group.description}</Text>
+      ) : null}
+
+      <Wrap>
+        {group.children.map((child) => (
+          <Card key={Math.random()}>
+            <CardHeader>
+              <Heading as={"h3"} size={itemHeadingFontSize}>
+                {child.name}
+              </Heading>
+            </CardHeader>{" "}
+            {itemDescriptionIsVisible ? (
+              <CardBody>
+                <Text size={itemDescriptionFontSize}>{child.description}</Text>
+              </CardBody>
+            ) : null}
+          </Card>
+        ))}
+      </Wrap>
+    </HStack>
+  ));
+
+  return <VStack>{sheetContent}</VStack>;
 }

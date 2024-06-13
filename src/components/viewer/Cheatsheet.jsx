@@ -1,7 +1,7 @@
 import Grouping from "./Grouping"
 import Item from "./Item"
 // import { generateId } from '../../utils/IdGenerator';
-import { HStack, Stack, Box, Wrap, WrapItem, Center, Text, Heading, Card, CardHeader, CardBody, CardFooter, VStack, Flex, Divider } from "@chakra-ui/react";
+import {  Box, Text, Heading,  Flex, HStack } from "@chakra-ui/react";
 import CardLayout from "./CardLayout";
 import ColumnLayout from "./ColumnLayout";
 import getDepth from "../../utils/getDepth";
@@ -41,7 +41,7 @@ export default function Cheatsheet({
                     : null
                 }
             </Box>
-            <Box m={'20px 0px 0px 0px'}>
+            <HStack m={'20px 0px 0px 0px'} align={"space-between"}>
                 {style == 'cards'
                     ? <CardLayout
                         content={content}
@@ -68,7 +68,7 @@ export default function Cheatsheet({
                         itemDescriptionFontSize={itemDescriptionFontSize}
                     />
                 }
-            </Box>
+            </HStack>
         </Box>
     )
 }

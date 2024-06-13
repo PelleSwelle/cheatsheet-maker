@@ -9,6 +9,8 @@ import cognitiveDistortions from './testResources/cognitiveDistortions.json'
 import ReactHooks from './testResources/ReactHooks.json'
 import JapaneseTechniques from './testResources/JapaneseTechniques.json'
 import designPatterns from './testResources/DesignPatterns.json'
+
+// components
 import Workbench from './components/workbench/Workbench'
 import IOCard from './components/workbench/IOCard'
 import { FontController } from './components/workbench/FontController';
@@ -16,7 +18,6 @@ import Viewer from './components/viewer/Viewer'
 import Cheatsheet from './components/viewer/Cheatsheet'
 import { getSelectedRadio } from './utils/GetSelectedRadio'
 // import handleUpload from './utils/HandleUpload';
-import mammoth from 'mammoth';
 import { Box, Divider, Heading } from '@chakra-ui/react';
 import {convertToChakraFontSize} from './utils/ConvertToChakraFontSize'
 import '@melloware/coloris/dist/coloris.css'
@@ -27,18 +28,17 @@ Coloris.init()
 Coloris({el: '.coloris'})
 
 function App() {
-    const [file, setFile] = useState(cognitiveDistortions)
+    const [file, setFile] = useState(designPatterns)
     
     const [descriptionIsVisible, setDescriptionIsVisible] = useState({
-        topic: true,
-        grouping: true,
-        item: true
+        topic: false,
+        grouping: false,
+        item: false
     })
-    const depth = getDepth(file)
 
     // VISUALISATION
     const [orientation, setOrientation] = useState('vertical');
-    const [style, setStyle] = useState('columns')
+    const [style, setStyle] = useState('cards')
 
     // ******** FONT SIZES ********
     const [fontSizes, setFontSize] = useState({
@@ -99,6 +99,7 @@ function App() {
         <div className="App">
             <Workbench>
                 <DetailSettingsCard
+                    hasGroupings={getDepth(file) > 2}
                     onTopicDetailChange={() => handleDetailChange('topic')}
                     onGroupingDetailChange={() => handleDetailChange('grouping')}
                     onItemDetailChange={() => handleDetailChange('item')}
@@ -128,7 +129,7 @@ function App() {
                         onChange={(value) => setFontSize({...fontSizes, topicDescription: convertToChakraFontSize(value)})}
                         />
                     {
-                        depth > 2
+                        getDepth(file) > 2
                         ?
                         <>
                         <FontController 

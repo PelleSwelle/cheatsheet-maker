@@ -19,7 +19,7 @@ export default function IOCard({onUpload}) {
             </Button>
             
             <Flex id="file-input-container">
-                <label for='file-upload' id="upload-button-label">Upload</label>
+                <label htmlFor='file-upload' id="upload-button-label">Upload</label>
 
                     <input type="file" 
                         id="file-upload" 

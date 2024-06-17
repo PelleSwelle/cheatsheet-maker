@@ -1,21 +1,31 @@
 import DomToImage from "dom-to-image"
+import html2canvas from "html2canvas"
+
 
 import { Flex, Box, Button, Text } from "@chakra-ui/react"
 
 export default function IOCard({onUpload}) {
     
-    const handlePDF = () => {
+    let screenshot;
+    
+    const handleDownloadImage = () => {
         let node = document.getElementById('cheatsheet')
-        DomToImage.toBlob(node)
-            .then(function(blob) {
-                window.saveAs(blob, 'my-cheatsheet')
-            })
+        html2canvas(node)
+        .then(canvas => {
+            var link = document.createElement("a");
+            document.body.appendChild(link);
+            link.download = "html_image.jpg";
+            link.href = canvas.toDataURL();
+            link.target = '_blank';
+            link.click();
+
+        })
     }
 
     return (
         <Box className="io-card">
-            <Button className="button export as-pdf" onClick={handlePDF}>
-                <Text>Export as PDF</Text>
+            <Button className="button export as-pdf" onClick={handleDownloadImage}>
+                <Text>Download as Image</Text>
             </Button>
             
             <Flex id="file-input-container">
@@ -25,7 +35,7 @@ export default function IOCard({onUpload}) {
                         id="file-upload" 
                         // multiple={false}
                         accept=".json, .docx, .html"
-                        onChange={onUpload}
+                        onChange={handleDownloadImage}
                     />
             </Flex>
         </Box>

@@ -16,7 +16,7 @@ import IOCard from './components/workbench/IOCard.jsx'
 import { FontController } from './components/workbench/FontController.jsx';
 import Viewer from './components/viewer/Viewer.jsx'
 import Cheatsheet from './components/viewer/Cheatsheet.jsx'
-import { getSelectedRadio } from './utils/GetSelectedRadio.jsx'
+import { getSelectedRadio } from './utils/GetSelectedRadio.js'
 // import handleUpload from './utils/HandleUpload';
 import { Box, Divider, Heading } from '@chakra-ui/react';
 import {convertToChakraFontSize} from './utils/ConvertToChakraFontSize.js'

@@ -35,6 +35,6 @@ jobs:
       with:
         branch: gh-pages
         folder: build
-        repositorty-name: JamesIves/lab
+        repository-name: JamesIves/lab
         target-folder: public
 

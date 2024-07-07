@@ -35,6 +35,3 @@ jobs:
       with:
         branch: gh-pages
         folder: dist
-        repository-name: JamesIves/lab
-        target-folder: public
-

@@ -1,7 +1,7 @@
 import './styles/App.css';
 import { useState } from 'react';
-import DetailSettingsCard from './components/workbench/DetailSettingsCard'
-import StyleSettingsCard from './components/workbench/StyleSettingsCard';
+import DetailSettingsCard from './components/workbench/DetailSettingsCard.jsx'
+import StyleSettingsCard from './components/workbench/StyleSettingsCard.jsx';
 
 
 // test files
@@ -11,18 +11,18 @@ import JapaneseTechniques from './testResources/JapaneseTechniques.json'
 import designPatterns from './testResources/DesignPatterns.json'
 
 // components
-import Workbench from './components/workbench/Workbench'
-import IOCard from './components/workbench/IOCard'
-import { FontController } from './components/workbench/FontController';
-import Viewer from './components/viewer/Viewer'
-import Cheatsheet from './components/viewer/Cheatsheet'
-import { getSelectedRadio } from './utils/GetSelectedRadio'
+import Workbench from './components/workbench/Workbench.jsx'
+import IOCard from './components/workbench/IOCard.jsx'
+import { FontController } from './components/workbench/FontController.jsx';
+import Viewer from './components/viewer/Viewer.jsx'
+import Cheatsheet from './components/viewer/Cheatsheet.jsx'
+import { getSelectedRadio } from './utils/GetSelectedRadio.jsx'
 // import handleUpload from './utils/HandleUpload';
 import { Box, Divider, Heading } from '@chakra-ui/react';
-import {convertToChakraFontSize} from './utils/ConvertToChakraFontSize'
+import {convertToChakraFontSize} from './utils/ConvertToChakraFontSize.js'
 import '@melloware/coloris/dist/coloris.css'
 import Coloris from '@melloware/coloris';
-import getDepth from './utils/getDepth';
+import getDepth from './utils/getDepth.js';
 
 Coloris.init()
 Coloris({el: '.coloris'})

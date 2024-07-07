@@ -1,11 +1,7 @@
-import Grouping from "./Grouping"
-import Item from "./Item"
-// import { generateId } from '../../utils/IdGenerator';
 import {  Box, Text, Heading,  Flex, HStack } from "@chakra-ui/react";
 import CardLayout from "./CardLayout";
 import ColumnLayout from "./ColumnLayout";
 import getDepth from "../../utils/getDepth";
-import { convertToChakraFontSize } from "../../utils/ConvertToChakraFontSize";
 
 
 export default function Cheatsheet({

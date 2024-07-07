@@ -104,24 +104,32 @@ function App() {
                     onGroupingDetailChange={() => handleDetailChange('grouping')}
                     onItemDetailChange={() => handleDetailChange('item')}
                 />
+
                 <Divider mt={'5px'} mb={'5px'}/>
+                
                 <StyleSettingsCard
                     styleSelected={style}
                     onStyleChange={handleStyleChange}
+                    orientationSelected={orientation}
                     onOrientationChange={handleOrientationChange}
                 />
+                
                 <Divider mt={'5px'} mb={'5px'}/>
+                
                 <Box id='color-selectors'>
                     <Heading as={'h2'} size={'md'}>Colors</Heading>
                     <input type="text" id='color1' className='coloris color-selector' onInput={() => handleColorChange()}/>
                     <input type="text" id='color2' className='coloris color-selector' onInput={() => handleColorChange()}/>
                 </Box>
+                
                 <Box>
                     <Heading as={'h2'} size={'md'}>Font sizes</Heading>
+                    
                     <FontController 
                         name={'Title'} 
                         value={fontSizes.TopicHeading} 
                         onChange={(value) => setFontSize({...fontSizes, TopicHeading: convertToChakraFontSize(value)})}/>
+                    
                     <FontController 
                         name={'Description'}
                         value={fontSizes.topicDescription}
@@ -142,12 +150,14 @@ function App() {
                             IsTogglable={true}
                             onChange={(value) => setFontSize({...fontSizes, groupingDescription: convertToChakraFontSize(value)})}/>
                         </>
-                        : null
-                        }
+                        : 
+                        null
+                    }
                     <FontController 
                         name={'Item Headings'} 
                         value={fontSizes.itemHeading} 
                         onChange={(value) => setFontSize({...fontSizes, itemHeading: convertToChakraFontSize(value)})}/>
+                    
                     <FontController 
                         name={'Item Descriptions'} 
                         value={fontSizes.itemDescription} 
@@ -157,6 +167,7 @@ function App() {
 
                 
                 <IOCard onUpload={handleUpload} />
+                
                 <Box></Box>
             </Workbench>
 

@@ -80,7 +80,6 @@ function App() {
         const color1 = document.getElementById('color1').value
         const color2 = document.getElementById('color2').value
 
-        console.log(`Colors: ${color1}, ${color2}`)
         setBackground(`linear(to-br, ${color1}, ${color2})`)
     }
 
@@ -146,12 +145,12 @@ function App() {
                         <FontController 
                             name={'Grouping Headings'} 
                             value={fontSizes.groupingHeading} 
-                            onChange={(value) => setFontSize({...fontSizes, groupingHeading: convertToChakraFontSize(value)})}/>
+                            onChange={(value) => setFontSize({...fontSizes, groupingHeading: value})}/>
                         <FontController 
                             name={'Grouping Descriptions'} 
                             value={fontSizes.groupingDescription} 
                             IsTogglable={true}
-                            onChange={(value) => setFontSize({...fontSizes, groupingDescription: convertToChakraFontSize(value)})}/>
+                            onChange={(value) => setFontSize({...fontSizes, groupingDescription: value})}/>
                         </>
                         : 
                         null
@@ -159,13 +158,13 @@ function App() {
                     <FontController 
                         name={'Item Headings'} 
                         value={fontSizes.itemHeading} 
-                        onChange={(value) => setFontSize({...fontSizes, itemHeading: convertToChakraFontSize(value)})}/>
+                        onChange={(value) => setFontSize({...fontSizes, itemHeading: value})}/>
                     
                     <FontController 
                         name={'Item Descriptions'} 
                         value={fontSizes.itemDescription} 
                         IsTogglable={true}
-                        onChange={(value) => setFontSize({...fontSizes, itemDescription: convertToChakraFontSize(value)})}/>
+                        onChange={(value) => setFontSize({...fontSizes, itemDescription: value})}/>
                 </Box>
 
                 
@@ -183,13 +182,13 @@ function App() {
                     groupingDescriptionIsVisible={descriptionIsVisible.grouping}
                     itemDescriptionIsVisible={descriptionIsVisible.item}
                     
-                    titleFontSize={fontSizes.TopicHeading}
-                    topicDescriptionFontSize={fontSizes.topicDescription}
-                    groupingHeadingFontSize={fontSizes.groupingHeading}
-                    groupingDescriptionFontSize={fontSizes.groupingDescription}
+                    titleFontSize={convertToChakraFontSize(fontSizes.TopicHeading)}
+                    topicDescriptionFontSize={convertToChakraFontSize(fontSizes.topicDescription)}
+                    groupingHeadingFontSize={convertToChakraFontSize(fontSizes.groupingHeading)}
+                    groupingDescriptionFontSize={convertToChakraFontSize(fontSizes.groupingDescription)}
                     
-                    itemHeadingFontSize={fontSizes.itemHeading}
-                    itemDescriptionFontSize={fontSizes.itemDescription}
+                    itemHeadingFontSize={convertToChakraFontSize(fontSizes.itemHeading)}
+                    itemDescriptionFontSize={convertToChakraFontSize(fontSizes.itemDescription)}
                     
                     orientation={orientation}
                     style={style}

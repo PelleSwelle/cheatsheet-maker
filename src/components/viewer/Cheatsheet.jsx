@@ -35,10 +35,10 @@ export default function Cheatsheet({
             bgGradient={background} 
             p={'20px'} >
             <Box className="sheet-header">
-                <Heading as={'h1'} size={convertToChakraFontSize(titleFontSize)} >{content.name}</Heading>
+                <Heading as={'h1'} size={titleFontSize} >{content.name}</Heading>
 
                 {topicDescriptionIsVisible
-                    ? (<Text color={'black'} fontSize={convertToChakraFontSize(topicDescriptionFontSize)} >{content.description}</Text>)
+                    ? (<Text color={'black'} fontSize={topicDescriptionFontSize} >{content.description}</Text>)
                     : null
                 }
             </Box>
@@ -50,11 +50,11 @@ export default function Cheatsheet({
                         showGroupingDescription={groupingDescriptionIsVisible}
                         showItemDescription={itemDescriptionIsVisible}
                         
-                        groupingHeadingFontSize={convertToChakraFontSize(groupingHeadingFontSize)}
-                        groupingDescriptionFontSize={convertToChakraFontSize(groupingDescriptionFontSize)}
+                        groupingHeadingFontSize={groupingHeadingFontSize}
+                        groupingDescriptionFontSize={groupingDescriptionFontSize}
 
-                        itemHeadingFontSize={convertToChakraFontSize(itemHeadingFontSize)}
-                        itemDescriptionFontSize={convertToChakraFontSize(itemHeadingFontSize)}
+                        itemHeadingFontSize={itemHeadingFontSize}
+                        itemDescriptionFontSize={itemHeadingFontSize}
                     />
                     : <ColumnLayout
                         content={content}
@@ -62,11 +62,11 @@ export default function Cheatsheet({
                         showGroupingDescription={groupingDescriptionIsVisible}
                         showItemDescription={itemDescriptionIsVisible}
                         
-                        groupingHeadingFontSize={convertToChakraFontSize(groupingHeadingFontSize)}
-                        groupingDescriptionFontSize={convertToChakraFontSize(groupingDescriptionFontSize)}
+                        groupingHeadingFontSize={groupingHeadingFontSize}
+                        groupingDescriptionFontSize={groupingDescriptionFontSize}
                         
-                        itemHeadingFontSize={convertToChakraFontSize(itemHeadingFontSize)}
-                        itemDescriptionFontSize={convertToChakraFontSize(itemDescriptionFontSize)}
+                        itemHeadingFontSize={itemHeadingFontSize}
+                        itemDescriptionFontSize={itemDescriptionFontSize}
                     />
                 }
             </HStack>

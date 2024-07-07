@@ -11,8 +11,6 @@ const ColumnLayout = ({
 
     let sheetContent;
 
-    console.log(`depth of content is ${depth}`)
-
     if (depth == 2) {
         sheetContent = content.children.map(child =>
             <Card key={Math.random()} w={'100%'} boxShadow={'dark-lg'}>
@@ -67,9 +65,9 @@ const ColumnLayout = ({
     }
 
 return (
-    <VStack className="content" align={'flex-start'}>
+    <HStack className="content" align={'flex-start'}>
         {sheetContent}
-    </VStack>
+    </HStack>
 )
 }
 

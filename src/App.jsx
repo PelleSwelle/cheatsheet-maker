@@ -43,10 +43,12 @@ function App() {
     // ******** FONT SIZES ********
     const [fontSizes, setFontSize] = useState({
         TopicHeading: 4,
-        topicDescription: 2,
-        groupingHeading: 2,
-        groupingDescription: 2,
-        itemHeading: 1,
+        topicDescription: 1,
+
+        groupingHeading: 3,
+        groupingDescription: 1,
+        
+        itemHeading: 2,
         itemDescription: 1
     })
     
@@ -110,6 +112,7 @@ function App() {
                 <StyleSettingsCard
                     styleSelected={style}
                     onStyleChange={handleStyleChange}
+
                     orientationSelected={orientation}
                     onOrientationChange={handleOrientationChange}
                 />

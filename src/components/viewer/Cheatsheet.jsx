@@ -5,6 +5,7 @@ import {  Box, Text, Heading,  Flex, HStack } from "@chakra-ui/react";
 import CardLayout from "./CardLayout";
 import ColumnLayout from "./ColumnLayout";
 import getDepth from "../../utils/getDepth";
+import { convertToChakraFontSize } from "../../utils/ConvertToChakraFontSize";
 
 
 export default function Cheatsheet({
@@ -34,10 +35,10 @@ export default function Cheatsheet({
             bgGradient={background} 
             p={'20px'} >
             <Box className="sheet-header">
-                <Heading as={'h1'} size={titleFontSize} >{content.name}</Heading>
+                <Heading as={'h1'} size={convertToChakraFontSize(titleFontSize)} >{content.name}</Heading>
 
                 {topicDescriptionIsVisible
-                    ? (<Text color={'black'} fontSize={topicDescriptionFontSize} >{content.description}</Text>)
+                    ? (<Text color={'black'} fontSize={convertToChakraFontSize(topicDescriptionFontSize)} >{content.description}</Text>)
                     : null
                 }
             </Box>
@@ -49,11 +50,11 @@ export default function Cheatsheet({
                         showGroupingDescription={groupingDescriptionIsVisible}
                         showItemDescription={itemDescriptionIsVisible}
                         
-                        groupingHeadingFontSize={groupingHeadingFontSize}
-                        groupingDescriptionFontSize={groupingDescriptionFontSize}
+                        groupingHeadingFontSize={convertToChakraFontSize(groupingHeadingFontSize)}
+                        groupingDescriptionFontSize={convertToChakraFontSize(groupingDescriptionFontSize)}
 
-                        itemHeadingFontSize={itemHeadingFontSize}
-                        itemDescriptionFontSize={itemDescriptionFontSize}
+                        itemHeadingFontSize={convertToChakraFontSize(itemHeadingFontSize)}
+                        itemDescriptionFontSize={convertToChakraFontSize(itemHeadingFontSize)}
                     />
                     : <ColumnLayout
                         content={content}
@@ -61,11 +62,11 @@ export default function Cheatsheet({
                         showGroupingDescription={groupingDescriptionIsVisible}
                         showItemDescription={itemDescriptionIsVisible}
                         
-                        groupingHeadingFontSize={groupingHeadingFontSize}
-                        groupingDescriptionFontSize={groupingDescriptionFontSize}
+                        groupingHeadingFontSize={convertToChakraFontSize(groupingHeadingFontSize)}
+                        groupingDescriptionFontSize={convertToChakraFontSize(groupingDescriptionFontSize)}
                         
-                        itemHeadingFontSize={itemHeadingFontSize}
-                        itemDescriptionFontSize={itemDescriptionFontSize}
+                        itemHeadingFontSize={convertToChakraFontSize(itemHeadingFontSize)}
+                        itemDescriptionFontSize={convertToChakraFontSize(itemDescriptionFontSize)}
                     />
                 }
             </HStack>

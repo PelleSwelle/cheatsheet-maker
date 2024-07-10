@@ -1,5 +1,3 @@
-// import OrientationSwitcher from "./OrientationSwitcher";
-// import StyleSwitcher from "./StyleSwitcher";
 import {
   Box,
   Heading,
@@ -7,7 +5,9 @@ import {
   RadioGroup,
   Stack,
   Radio,
+  Flex
 } from "@chakra-ui/react";
+import FormattingSelector from "./FormattingSelector";
 
 export default function StyleSettingsCard({
   styleSelected,
@@ -21,7 +21,7 @@ export default function StyleSettingsCard({
       <Heading as={"h2"} size={"md"}>
         Style
       </Heading>
-
+      <FormattingSelector/>
       <Box className="orientation-switcher">
         <Heading as={"h2"} size={"sm"}>
           Orientation

@@ -51,6 +51,8 @@ function App() {
         itemHeading: 2,
         itemDescription: 1
     })
+
+    const [groupingTitlePosition, setGroupingTitlePosition] = useState('above')
     
     const [background, setBackground] = useState(`linear(to-br, green.200, pink.500)`)
 
@@ -177,13 +179,13 @@ function App() {
                 <Cheatsheet
                     content={file}
 
-                    // descriptionsVisible={descriptionIsVisible}
                     topicDescriptionIsVisible={descriptionIsVisible.topic}
                     groupingDescriptionIsVisible={descriptionIsVisible.grouping}
                     itemDescriptionIsVisible={descriptionIsVisible.item}
                     
                     titleFontSize={convertToChakraFontSize(fontSizes.TopicHeading)}
                     topicDescriptionFontSize={convertToChakraFontSize(fontSizes.topicDescription)}
+
                     groupingHeadingFontSize={convertToChakraFontSize(fontSizes.groupingHeading)}
                     groupingDescriptionFontSize={convertToChakraFontSize(fontSizes.groupingDescription)}
                     

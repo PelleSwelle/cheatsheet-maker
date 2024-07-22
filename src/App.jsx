@@ -28,7 +28,7 @@ Coloris.init()
 Coloris({el: '.coloris'})
 
 function App() {
-    const [file, setFile] = useState(designPatterns)
+    const [file, setFile] = useState(ReactHooks)
     
     const [descriptionIsVisible, setDescriptionIsVisible] = useState({
         topic: false,

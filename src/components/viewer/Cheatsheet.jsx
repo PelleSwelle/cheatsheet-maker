@@ -31,7 +31,7 @@ export default function Cheatsheet({
             bgGradient={background} 
             p={'20px'} >
             <Box className="sheet-header">
-                <Heading as={'h1'} size={titleFontSize} >{content.name}</Heading>
+                <Heading as={'h1'} size={titleFontSize}>{content.name}</Heading>
 
                 {topicDescriptionIsVisible
                     ? (<Text color={'black'} fontSize={topicDescriptionFontSize} >{content.description}</Text>)
